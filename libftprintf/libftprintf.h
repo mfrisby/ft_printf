@@ -20,5 +20,7 @@
 int		ft_printf_precision(int *start, char *string);
 char	*ft_printf_width(char *moon, char *result, int *i);
 int     ft_printf_o(int n);
+char    ft_printf_modulo(int i, char *format);
+char    ft_printf_special_char(int i, char *format);
 
 #endif

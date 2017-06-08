@@ -19,11 +19,9 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int				ft_printf(const char *restrict format, ...);
 typedef struct	s_env
 {
-	t_list		*lst;
-	char		*result;
+	char		result[4000];
 	size_t		size;
 	int			i;
 	char		type;
@@ -36,4 +34,11 @@ typedef struct	s_env
 	int			precision;
 }				t_env;
 
+typedef struct	s_map
+{
+	void		*key;
+	void		*value;
+}				t_map;
+
+int				ft_printf(const char *restrict format, ...);
 #endif
