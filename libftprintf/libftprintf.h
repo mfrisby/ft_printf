@@ -16,11 +16,33 @@
 # include "../libft/libft.h"
 # include "../include/ft_printf.h"
 
+typedef struct	s_map
+{
+	void		*key;
+	void		*value;
+}				t_map;
+
+typedef struct	s_env
+{
+	char		result[4000];
+	size_t		size;
+	int			i;
+	char		type;
+	int			nb_arg;
+	int			flag_plus;
+	int			flag_diese;
+	int			flag_moins;
+	int			flag_space;
+	int			flag_zero;
+	int			precision;
+}				t_env;
+
 //void	ft_printf_flags(char *string, t_env *e);
 int		ft_printf_precision(int *start, char *string);
 char	*ft_printf_width(char *moon, char *result, int *i);
 int     ft_printf_o(int n);
-char    ft_printf_modulo(int i, char *format);
-char    ft_printf_special_char(int i, char *format);
+void    ft_printf_modulo(t_env *e, char *format);
+void    ft_printf_special_char(t_env *e, char *format);
+void    ft_printf_buffer_flush(t_env *e);
 
 #endif

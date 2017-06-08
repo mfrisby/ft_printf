@@ -19,26 +19,5 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-typedef struct	s_env
-{
-	char		result[4000];
-	size_t		size;
-	int			i;
-	char		type;
-	int			nb_arg;
-	int			flag_plus;
-	int			flag_diese;
-	int			flag_moins;
-	int			flag_space;
-	int			flag_zero;
-	int			precision;
-}				t_env;
-
-typedef struct	s_map
-{
-	void		*key;
-	void		*value;
-}				t_map;
-
 int				ft_printf(const char *restrict format, ...);
 #endif

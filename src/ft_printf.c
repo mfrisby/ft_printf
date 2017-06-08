@@ -37,18 +37,15 @@ static void	ft_printf_add_char(t_env *e, char c)
 static void	ft_printf_parse(t_env *e, char *format)
 {
 	if (format[e->i] == 92)
-	{
-		e->result[e->size] = ft_printf_special_char(e->i, format);
-		e->size+=1;/*does \t tab add 4 char to size?*/
-	}
+		ft_printf_special_char(e, format);
 	else if (format[e->i] == '%')
 	{
-		e->result[e->size] = ft_printf_modulo(e->i, format);
+		ft_printf_modulo(e, format);
+		e->i+=2;
 		//e->size+=2;
 	}
 	else
 		return;
-	e->i+=2;
 }
 
 int			ft_printf(const char *restrict format, ...)
@@ -60,12 +57,7 @@ int			ft_printf(const char *restrict format, ...)
 	va_start(pa, format);
 	while (format[e.i] != '\0')
 	{
-		if (e.size > 3999)/*buffer oversize, show string restart BUFFER*/
-		{
-			ft_putstr(e.result);
-			e.size = 0;
-			ft_bzero(e.result, 4000);
-		}
+		ft_printf_buffer_flush(&e);
 		if ((format[e.i] != '%' && format[e.i] != 92) ||
 			(format[e.i] == '%' && format[e.i+1] && format[e.i+1] == '%'))
 			ft_printf_add_char(&e, format[e.i]);

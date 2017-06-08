@@ -17,6 +17,7 @@ SRC = ft_printf_ouxx.c \
 	  ft_printf_width.c \
 	  ft_printf_modulo.c \
 	  ft_printf_special_char.c \
+	  ft_printf_buffer_flush.c \
 
 OBJS = $(SRC:.c=.o)
 

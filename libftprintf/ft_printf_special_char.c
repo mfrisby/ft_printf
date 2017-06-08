@@ -1,42 +1,36 @@
 #include "libftprintf.h"
 
-char    ft_printf_printable_char(char result, char c)
-{
-    if (c == 92)/* / */
-        result = 92;
-    if (c == 34)/* " */
-        result = 34;
-    if (c == 39)/* ' */
-        result = 39;
-    if (c == 63)/* ? */
-        result = 63;
-    return (result);
-}
-
-char    ft_printf_special_char(int i, char *format)
+void    ft_printf_special_char(t_env *e, char *format)
 {
     char    c;
-    char    result;
 
-    result = 0;
-    if (!format[i + 1])
-        return (result);
-    c = format[i + 1];
+    if (!format[e->i + 1])
+        return ;
+    c = format[e->i + 1];
     if (c == 110)/* n */
-        result = 10;
+        e->result[e->size] = 10;
     else if (c == 98)/* \b backspace */
-        result = 8;
+        e->result[e->size] = 8;
     else if (c == 114)/* /r carriage return */
-        result = 13;
+        e->result[e->size] = 13;
     else if (c == 97)/* \a alert/bell */
-        result = 7;
+        e->result[e->size] = 7;
     else if (c == 102)/* \f formFeed */
-       result = 12;
+       e->result[e->size] = 12;
     else if (c == 118)/* \v vertical tab */
-        result = 11;
+        e->result[e->size] = 11;
     else if (c == 116)/* \t horizontal tab */
-        result = 9;
+        e->result[e->size] = 9;
+    else if (c == 92)/* / */
+        e->result[e->size] = 92;
+    else if (c == 34)/* " */
+        e->result[e->size] = 34;
+    else if (c == 39)/* ' */
+        e->result[e->size] = 39;
+    else if (c == 63)/* ? */
+        e->result[e->size] = 63;
     else
-        result = ft_printf_printable_char(result, c);
-    return (result);
+        return;
+    e->size+=1;
+    e->i += 2;
 }
