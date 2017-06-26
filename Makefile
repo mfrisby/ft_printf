@@ -21,7 +21,7 @@ OBJ = 	$(SRC:.c=.o)
 
 INCLUDE = -I ./include
 
-FLAG =	-Wall -Wextra -Werror -g
+FLAG =	#-Wall -Wextra -Werror -g
 
 INC_FILE = include/ft_printf.h libft/libft.h libftprintf/libftprintf.h
 

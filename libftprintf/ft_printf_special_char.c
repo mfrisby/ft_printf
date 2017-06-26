@@ -1,13 +1,16 @@
 #include "libftprintf.h"
 
-void    ft_printf_special_char(t_env *e, char *format)
+static int         ft_printf_find_char(t_env *e, char c)
 {
-    char    c;
-
-    if (!format[e->i + 1])
-        return ;
-    c = format[e->i + 1];
-    if (c == 110)/* n */
+    if (c == 92)/* / */
+        e->result[e->size] = 92;
+    else if (c == 34)/* " */
+        e->result[e->size] = 34;
+    else if (c == 39)/* ' */
+        e->result[e->size] = 39;
+    else if (c == 63)/* ? */
+        e->result[e->size] = 63;
+    else if (c == 110)/* n */
         e->result[e->size] = 10;
     else if (c == 98)/* \b backspace */
         e->result[e->size] = 8;
@@ -21,16 +24,21 @@ void    ft_printf_special_char(t_env *e, char *format)
         e->result[e->size] = 11;
     else if (c == 116)/* \t horizontal tab */
         e->result[e->size] = 9;
-    else if (c == 92)/* / */
-        e->result[e->size] = 92;
-    else if (c == 34)/* " */
-        e->result[e->size] = 34;
-    else if (c == 39)/* ' */
-        e->result[e->size] = 39;
-    else if (c == 63)/* ? */
-        e->result[e->size] = 63;
     else
-        return;
-    e->size+=1;
-    e->i += 2;
+        return (0);
+    return (1);
+}
+
+void        ft_printf_special_char(t_env *e, char *format)
+{
+    char    c;
+
+    if (!format[e->i + 1])
+        return ;
+    c = format[e->i + 1];
+    if (ft_printf_find_char(e, c) == 1)
+    {
+        e->size+=1;
+        e->i += 2;
+    }
 }

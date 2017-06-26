@@ -14,6 +14,11 @@
 
 int		main(int ac, char **av)
 {
+	int result = 12;
+	printf("***test***\n");
+	printf("%.1d", result);
+	printf("\n***test***\n");
+	//%8.2Lf
 	int ret = 0;
 	if (ac == 2)
 	{
@@ -27,9 +32,10 @@ int		main(int ac, char **av)
 	{
 		ret = ft_printf(av[1], av[2], av[3]);
 	}
-	if (ac == 2)
-	{
-		ret = printf("\nprintf : %s", av[1]);
-	}
+	
+	printf("\n");
+	/** COMPAR PRINTF **/
+	int ret2 = printf("%%");
+	printf("\nret = %d -- %d", ret, ret2);
 	return (0);
 }

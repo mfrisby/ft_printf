@@ -17,6 +17,7 @@ static void ft_printf_init(t_env *e)
 	e->size = 0;//nombre de charactere affiche a renvoyer
 	e->nb_arg = 0;
 	e->precision = 0;
+	ft_bzero(e->result, 3999);
 	//e->type; //string
 	e->nb_arg = 0;
 	ft_printf_init_flags(e);
@@ -36,16 +37,12 @@ static void	ft_printf_add_char(t_env *e, char c)
 
 static void	ft_printf_parse(t_env *e, char *format)
 {
-	if (format[e->i] == 92)
+	if (format[e->i] == 92)/* backslash */
 		ft_printf_special_char(e, format);
-	else if (format[e->i] == '%')
-	{
-		ft_printf_modulo(e, format);
-		e->i+=2;
-		//e->size+=2;
-	}
+	//else if (format[e->i] == '%' && format[e->i + 1])
+	//	ft_printf_modulo(e, format);
 	else
-		return;
+		e->i+=1;
 }
 
 int			ft_printf(const char *restrict format, ...)
@@ -58,7 +55,7 @@ int			ft_printf(const char *restrict format, ...)
 	while (format[e.i] != '\0')
 	{
 		ft_printf_buffer_flush(&e);
-		if ((format[e.i] != '%' && format[e.i] != 92) ||
+		if ((format[e.i] != '%' && format[e.i] != 92)/* backslash */ ||
 			(format[e.i] == '%' && format[e.i+1] && format[e.i+1] == '%'))
 			ft_printf_add_char(&e, format[e.i]);
 		else

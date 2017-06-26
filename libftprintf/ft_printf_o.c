@@ -1,6 +1,8 @@
-int ft_printf_o(unsigned int n)
+#include "libftprintf.h"
+
+void ft_printf_o()
 {
-    int octal;
+    /*int octal;
     int i;
 
     octal = 0;
@@ -11,5 +13,6 @@ int ft_printf_o(unsigned int n)
         n /= 8;
         i *= 10;
     }
-    return (octal);
+    return (octal);*/
+    return;
 }
