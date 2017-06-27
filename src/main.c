@@ -21,7 +21,7 @@ int		main(int ac, char **av)
 		fake[toto] = 'c';
 		toto++;
 	}
-	int ret = ft_printf("%s", fake);
+	int ret = ft_printf("%.5s", fake);
 	ft_putchar('\n');
 	ft_putnbr(ret);
 	return (0);
