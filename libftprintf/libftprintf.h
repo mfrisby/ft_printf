@@ -49,7 +49,7 @@ void     			ft_printf_u(void);
 void     			ft_printf_umaj(void);
 void    			ft_printf_x(t_env *e);
 void    			ft_printf_xmaj(t_env *e);
-void     			ft_printf_c(void);
+void     			ft_printf_c(t_env *e);
 void     			ft_printf_cmaj(void);
 int					ft_printf_precision(t_env *e, char *format);
 char				*ft_printf_width(char *moon, char *result, int *i);
