@@ -54,6 +54,7 @@ int					ft_printf_precision(t_env *e, char *format);
 char				*ft_printf_width(char *moon, char *result, int *i);
 void    			ft_printf_modulo(t_env *e, char *format);
 void    			ft_printf_special_char(t_env *e, char *format);
+int	    			ft_printf_length(t_env *e, char *format);
 void    			ft_printf_buffer_flush(t_env *e);
 int	    			ft_printf_conversion(t_env *e, char c);
 

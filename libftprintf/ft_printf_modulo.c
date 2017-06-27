@@ -55,6 +55,8 @@ void    ft_printf_modulo(t_env *e, char *format)
             continue;
         if (ft_printf_precision(e, format) == 0)
             continue;
+        if (ft_printf_length(e, format) == 0)
+            continue;
         e->i+=1;
     }
     if (conversion == 0)
