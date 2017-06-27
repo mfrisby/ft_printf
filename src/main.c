@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 int		main(int ac, char **av)
-{/*
+{
 	char fake[5000];
 	int toto = 0;
 	while (toto < 4800)
@@ -27,12 +27,12 @@ int		main(int ac, char **av)
 
 	int ret2 = printf("%s", fake);
 
-	printf("\nret = %d -- ret2 == %d\n", ret, ret2);*/
-
+	printf("\nret = %d -- ret2 == %d\n", ret, ret2);
+/*
 	int toto = 65;
 	printf("%c", toto);
 	return (0);
-/*
+
 	int ret = 0;
 	int ret2 = 0;
 	if (ac == 2)

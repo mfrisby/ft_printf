@@ -21,7 +21,7 @@ static void ft_printf_init(t_env *e)
 	e->size = 0;//nombre de charactere affiche a renvoyer
 	e->index =0;//index buffer
 	e->nb_arg = 0;
-	ft_bzero(e->result, 3999);
+	ft_bzero(e->result, 4000);
 	e->nb_arg = 0;
 	ft_printf_init_flags(e);
 }

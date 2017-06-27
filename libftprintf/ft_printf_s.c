@@ -22,8 +22,8 @@ static void ft_printf_add_to_buffer(t_env *e, char *s, int start, int max)
 
 void    ft_printf_s(t_env *e)
 {
-    void *v = va_arg(e->pa , char *);
-    //char *s = va_arg(e->pa, char*);
+    //void *v = va_arg(e->pa , char *);
+    char *s = va_arg(e->pa, char*);
     ft_printf_add_to_buffer(e, s, 0, e->precision);
     return;
 }
