@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfrisby <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 14:43:54 by mfrisby           #+#    #+#             */
-/*   Updated: 2016/08/11 14:49:47 by mfrisby          ###   ########.fr       */
+/*   Updated: 2017/06/27 17:13:43 by ysan-seb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void     			ft_printf_omaj(void);
 void     			ft_printf_o(void);
 void     			ft_printf_u(void);
 void     			ft_printf_umaj(void);
-void     			ft_printf_xx(void);
+void    			ft_printf_x(t_env *e);
+void    			ft_printf_xmaj(t_env *e);
 void     			ft_printf_c(void);
 void     			ft_printf_cmaj(void);
 int					ft_printf_precision(t_env *e, char *format);
@@ -57,5 +58,6 @@ void    			ft_printf_special_char(t_env *e, char *format);
 int	    			ft_printf_length(t_env *e, char *format);
 void    			ft_printf_buffer_flush(t_env *e);
 int	    			ft_printf_conversion(t_env *e, char c);
+char				*ft_printf_itoabase(unsigned int nbr, int base);
 
 #endif

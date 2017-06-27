@@ -20,8 +20,10 @@ int        ft_printf_conversion(t_env *e, char c){
         ft_printf_o();
     else if (c == 'O')
         ft_printf_omaj();
-    else if (c == 'x' || c == 'X')
-        ft_printf_xx();
+    else if (c == 'x')
+        ft_printf_x(e);
+    else if (c == 'X')
+        ft_printf_xmaj(e);
     else if (c == 'c')
         ft_printf_c();
     else if (c == 'C')

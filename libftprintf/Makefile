@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mfrisby <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/09 15:14:15 by mfrisby           #+#    #+#              #
-#    Updated: 2017/05/31 14:06:49 by mfrisby          ###   ########.fr        #
+#    Updated: 2017/06/27 17:12:37 by ysan-seb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SRC = 	ft_printf_precision.c ft_printf_conversion.c ft_printf_width.c \
 	  	ft_printf_s.c ft_printf_smaj.c ft_printf_p.c \
 		ft_printf_di.c ft_printf_dmaj.c ft_printf_cmaj.c \
 		ft_printf_omaj.c ft_printf_o.c ft_printf_u.c \
-		ft_printf_umaj.c ft_printf_xx.c ft_printf_c.c \
+		ft_printf_umaj.c ft_printf_x.c ft_printf_xmaj.c ft_printf_c.c \
+		ft_printf_itoabase.c \
+
 
 OBJS = $(SRC:.c=.o)
 
