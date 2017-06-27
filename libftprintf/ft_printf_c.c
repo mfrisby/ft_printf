@@ -7,6 +7,10 @@ void    ft_printf_c(t_env *e)
 
     uc = 0;
     c = va_arg(e->pa, int);
+    while (c > 128)
+    {
+        c -= 128;
+    }
     if (c >= 0 && c <= 255)
     {
         uc = c;

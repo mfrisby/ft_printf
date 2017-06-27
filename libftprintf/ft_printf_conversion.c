@@ -25,7 +25,7 @@ int        ft_printf_conversion(t_env *e, char c){
     else if (c == 'X')
         ft_printf_xmaj(e);
     else if (c == 'c')
-        ft_printf_s(e);
+        ft_printf_c(e);
     else if (c == 'C')
         ft_printf_cmaj();
     else
