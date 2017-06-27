@@ -15,11 +15,14 @@
 
 # include "../libft/libft.h"
 # include "../include/ft_printf.h"
+#include <stdio.h>
+#include <stdarg.h>
 
 typedef struct		s_env
 {
 	char			result[4000];
 	size_t			size;
+	size_t			index;
 	int				i;
 	char			type;
 	int				nb_arg;
@@ -29,28 +32,29 @@ typedef struct		s_env
 	int				flag_space;
 	int				flag_zero;
 	int				precision;
+	int				precision_in_arg;
+	int				field_width;
+	va_list			pa;
 }					t_env;
 
 
-int					ft_printf_precision(int *start, char *string);
+void     			ft_printf_s(t_env *);
+void     			ft_printf_smaj(void);
+void     			ft_printf_p(void);
+void     			ft_printf_di(void);
+void     			ft_printf_dmaj(void);
+void     			ft_printf_omaj(void);
+void     			ft_printf_o(void);
+void     			ft_printf_u(void);
+void     			ft_printf_umaj(void);
+void     			ft_printf_xx(void);
+void     			ft_printf_c(void);
+void     			ft_printf_cmaj(void);
+int					ft_printf_precision(t_env *e, char *format);
 char				*ft_printf_width(char *moon, char *result, int *i);
 void    			ft_printf_modulo(t_env *e, char *format);
 void    			ft_printf_special_char(t_env *e, char *format);
 void    			ft_printf_buffer_flush(t_env *e);
-void    			ft_printf_conversion();
-/**			CONVERSION        **/
-
-void     			ft_printf_s();
-void     			ft_printf_smaj();
-void     			ft_printf_p();
-void     			ft_printf_di();
-void     			ft_printf_dmaj();
-void     			ft_printf_omaj();
-void     			ft_printf_o();
-void     			ft_printf_u();
-void     			ft_printf_umaj();
-void     			ft_printf_xx();
-void     			ft_printf_c();
-void     			ft_printf_cmaj();
+int	    			ft_printf_conversion(t_env *e, char c);
 
 #endif

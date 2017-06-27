@@ -12,18 +12,28 @@
 
 #include "libftprintf.h"
 
-int		ft_printf_precision(int *start, char *string)
+int		ft_printf_precision(t_env *e, char *format)
 {
-	int i;
-	char	*newstring;
+    int start;
 
-	i = 0;
-	newstring = NULL;
-	while (string[i] != '\0' && ft_isdigit(string[i]) == 1)
-	{
-		i++;
-	}
-	newstring = ft_strsub(string, *start, (i - *start));
-	*start = i;
-	return (ft_atoi(newstring));
+    if (format[e->i] != '.')
+        return -1;
+    e->i++;
+    if (format[e->i] == '*')//precision dans arg
+    {
+        e->precision_in_arg = 1;
+        return (-1);
+    }
+    start = e->i;
+    while (format[e->i] && format[e->i] >= '1' && format[e->i] <= '9')
+    {
+        e->i++;
+    }
+    if (start != e->i)
+    {
+	    ft_putendl("ft_printf_precision");
+        e->precision = ft_atoi(ft_strsub(format, start, e->i - start));
+        return (0);
+    }
+    return (-1);
 }

@@ -1,6 +1,7 @@
 #include "libftprintf.h"
 
-void    ft_prinf_xx()
+void    ft_printf_xx()
 {
+    ft_putendl("ft_printf_xx");
     return;
 }

@@ -2,6 +2,7 @@
 
 void ft_printf_o()
 {
+    ft_putendl("ft_printf_o");
     /*int octal;
     int i;
 

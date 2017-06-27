@@ -1,6 +1,7 @@
 #include "libftprintf.h"
 
-void    ft_prinf_omaj()
+void    ft_printf_omaj()
 {
+    ft_putendl("ft_printf_omaj");
     return;
 }

@@ -1,6 +1,7 @@
 #include "libftprintf.h"
 
-void    ft_prinf_smaj()
+void    ft_printf_smaj()
 {
+    ft_putendl("ft_printf_smaj");
     return;
 }

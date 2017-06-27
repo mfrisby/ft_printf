@@ -14,28 +14,37 @@
 
 int		main(int ac, char **av)
 {
-	int result = 12;
-	printf("***test***\n");
-	printf("%.1d", result);
-	printf("\n***test***\n");
-	//%8.2Lf
+	char fake[5000];
+	int toto = 0;
+	while (toto < 4800)
+	{
+		fake[toto] = 'c';
+		toto++;
+	}
+	int ret = ft_printf("%s", fake);
+	ft_putchar('\n');
+	ft_putnbr(ret);
+	return (0);
+/*
 	int ret = 0;
+	int ret2 = 0;
 	if (ac == 2)
 	{
 		ret = ft_printf(av[1]);
+		ret2= printf(av[1]);
 	}
-	if (ac == 3)
+	else if (ac == 3)
 	{
 		ret  = ft_printf(av[1], av[2]);
+		ret2 = printf(av[1], av[2]);
 	}
-	if (ac == 4)
+	else if (ac == 4)
 	{
 		ret = ft_printf(av[1], av[2], av[3]);
+		ret2 = printf(av[1], av[2], av[3]);
 	}
-	
-	printf("\n");
-	/** COMPAR PRINTF **/
-	int ret2 = printf("%%");
-	printf("\nret = %d -- %d", ret, ret2);
-	return (0);
+	else
+		return (0);
+	printf("\nret = %d -- ret2 = %d", ret, ret2);
+	return (0);*/
 }
