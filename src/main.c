@@ -14,7 +14,9 @@
 
 int		main(int ac, char **av)
 {
-	char fake[5000];
+	ft_printf("salut %s  %c \n", "toto", 65);
+	printf("salut %s  %c \n", "toto", 65);
+/*	char fake[5000];
 	int toto = 0;
 	while (toto < 4800)
 	{
@@ -28,30 +30,33 @@ int		main(int ac, char **av)
 	int ret2 = printf("%s", fake);
 
 	printf("\nret = %d -- ret2 == %d\n", ret, ret2);
-/*
-	int toto = 65;
-	printf("%c", toto);
-	return (0);
 
 	int ret = 0;
 	int ret2 = 0;
 	if (ac == 2)
 	{
+		ft_putstr("ft_printf : ");
 		ret = ft_printf(av[1]);
+		ft_putchar('\n');
 		ret2= printf(av[1]);
 	}
 	else if (ac == 3)
 	{
+		ft_putstr("ft_printf : ");
 		ret  = ft_printf(av[1], av[2]);
+		ft_putchar('\n');
 		ret2 = printf(av[1], av[2]);
 	}
 	else if (ac == 4)
 	{
+		ft_putstr("ft_printf : ");
 		ret = ft_printf(av[1], av[2], av[3]);
+		ft_putchar('\n');
 		ret2 = printf(av[1], av[2], av[3]);
 	}
 	else
 		return (0);
 	printf("\nret = %d -- ret2 = %d", ret, ret2);
-	return (0);*/
+	*/
+	return (0);
 }
