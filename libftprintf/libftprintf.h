@@ -39,6 +39,8 @@ typedef struct		s_env
 
 void    			ft_printf_special_char(t_env *e, char *format);
 char				*ft_printf_itoabase(unsigned int nbr, int base);
+char				*ft_printf_itoabase_si(signed int nbr, int base);
+char				*ft_printf_str_reverse(char *str);
 void    			ft_printf_modulo(t_env *e, char *format);
 /** FLAGS **/
 int					ft_printf_precision(t_env *e, char *format);
@@ -49,7 +51,7 @@ int	    			ft_printf_conversion(t_env *e, char c);
 void     			ft_printf_s(t_env *);
 void     			ft_printf_smaj(void);
 void     			ft_printf_p(void);
-void     			ft_printf_di(void);
+void     			ft_printf_di(t_env *e);
 void     			ft_printf_dmaj(void);
 void     			ft_printf_omaj(void);
 void     			ft_printf_o(void);

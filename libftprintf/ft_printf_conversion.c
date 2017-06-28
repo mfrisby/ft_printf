@@ -12,7 +12,7 @@ int        ft_printf_conversion(t_env *e, char c){
     else if (c == 'p')
         ft_printf_p();
     else if (c == 'd' || c == 'i')
-        ft_printf_di();
+        ft_printf_di(e);
     else if (c == 'D')
         ft_printf_dmaj();
     else if (c == 'o')
