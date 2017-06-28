@@ -56,6 +56,5 @@ void    ft_printf_x(t_env *e)
     }
     checkdiesezeroflag(e, tmp);
     ft_printf_add_to_buffer(e, tmp, 0);
-    //ft_putendl(tmp);
     return;
 }
