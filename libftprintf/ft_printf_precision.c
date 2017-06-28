@@ -29,9 +29,8 @@ int		ft_printf_precision(t_env *e, char *format)
     {
         e->i++;
     }
-    if (start != e->i)
+    if (start < e->i)
     {
-	    ft_putendl("ft_printf_precision");
         e->precision = ft_atoi(ft_strsub(format, start, e->i - start));
         return (0);
     }

@@ -56,10 +56,6 @@ S
 Synonyme de ls. Ne pas utiliser.
 p
 L'argument pointeur, du type void * est affiché en hexadécimal, comme avec %#x ou %#lx.
-n
-Le nombre de caractères déjà écrits est stocké dans l'entier indiqué par l'argument pointeur de type int *. Aucun argument n'est converti.
-m
-Afficher la sortie de strerror(errno). Aucun argument n'est nécessaire.
 
 FLAGS
 0
@@ -98,6 +94,11 @@ La conversion entière suivante correspond à un argument size_t ou ssize_t. (La
  
  BONUS
  
+n
+Le nombre de caractères déjà écrits est stocké dans l'entier indiqué par l'argument pointeur de type int *. Aucun argument n'est converti.
+m
+Afficher la sortie de strerror(errno). Aucun argument n'est nécessaire.
+
  Gestion de conversions plus délicates : eE, fF, gG, aA, n
 
  Gestion de flags plus delicats : *, $, L, ’ .

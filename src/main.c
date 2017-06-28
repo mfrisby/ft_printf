@@ -14,8 +14,11 @@
 
 int		main(int ac, char **av)
 {
-	ft_printf("salut %s  %c \n", "toto", 65);
-	printf("salut %s  %c \n", "toto", 65);
+	//char *toto = "012345678910";
+	unsigned int toto = -12;
+	printf("printf: %#08.11x\n", toto);
+	ft_printf("ft_printf : %0#8.11x\n", toto);
+	//printf("salut %s  %c \n", "toto", 65);
 /*	char fake[5000];
 	int toto = 0;
 	while (toto < 4800)

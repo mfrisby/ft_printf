@@ -1,26 +1,5 @@
 #include "libftprintf.h"
 
-static void ft_printf_add_to_buffer(t_env *e, char *s, int start)
-{
-    if (e->precision > 0)
-    {
-        s[e->precision] = '\0';
-    }
-    while (e->index <= 3999 && s[start])
-    {
-        e->result[e->index] = s[start];
-        e->index++;
-        e->size++;
-        start++;
-    }
-    if (e->index >= 3999)
-    {
-        ft_printf_buffer_flush(e);
-        ft_printf_add_to_buffer(e, s, start);
-    }
-}
-
-
 static void     checkdiesezeroflag(t_env *e, char *tmp)
 {
     int i;
@@ -30,13 +9,12 @@ static void     checkdiesezeroflag(t_env *e, char *tmp)
         ft_strcmp("-0", tmp) != 0 && ft_strcmp("+0", tmp) != 0)
     {
         ft_printf_add_to_buffer(e, "0x", 0);
-        e->field_width -= 2;
+       // e->field_width -= 2;
     }
-    while (e->flag_zero == 1 && e->flag_moins == 0 && i < e->field_width)
+    printf("zero: %d\nmoins: %d\nfield: %d\nprecision: %d\n", e->flag_zero, e->flag_moins, e->field_width, e->precision);
+    while (e->flag_zero == 1 && e->flag_moins == 0 && i <= e->field_width && i <= e->precision)
     {
-        e->result[e->index] = '0';
-        e->index++;
-        e->size++;
+        ft_printf_add_to_buffer(e, "0", 0);
         i++;
     }
 }

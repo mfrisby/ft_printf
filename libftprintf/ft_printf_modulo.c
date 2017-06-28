@@ -15,7 +15,7 @@ static int      ft_printf_field_width(t_env *e, char *format)
     }
     if (start != e->i)
     {
-        e->field_width = ft_atoi(ft_strsub(format, start, e->i - start));
+        e->field_width = ft_atoi(ft_strsub(format, start, (e->i+1) - start));
         return (0);
     }
     return (-1);
@@ -41,12 +41,14 @@ static int      ft_printf_isflag(char c, t_env *e)
 
 void    ft_printf_modulo(t_env *e, char *format)
 {
-    int conversion;
-
-    conversion = 1;
     e->i+=1;//after %
-    while (format[e->i] && (conversion = ft_printf_conversion(e, format[e->i])) == -1)
+    while (format[e->i])
     {
+        if (ft_printf_conversion(e, format[e->i]) == 0)
+        {
+            e->i+=1;
+            break;
+        }
         if (ft_printf_isflag(format[e->i], e) == 0)
             continue;
         if (ft_printf_field_width(e, format) == 0)
@@ -56,11 +58,6 @@ void    ft_printf_modulo(t_env *e, char *format)
         if (ft_printf_length(e, format) == 0)
             continue;
         e->i+=1;
-    }
-    if (conversion == 0)
-    {
-       // ft_printf_conversion(format[e->i]);
-        e->i++;
     }
     return ;
 }
