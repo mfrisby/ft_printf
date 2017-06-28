@@ -1,19 +1,10 @@
 #include "libftprintf.h"
 
-void ft_printf_o()
+void ft_printf_o(t_env *e)
 {
-    ft_putendl("ft_printf_o");
-    /*int octal;
-    int i;
+    char *tmp;
 
-    octal = 0;
-    i = 1;
-    while (n != 0)
-    {
-        octal += (n % 8) * i;
-        n /= 8;
-        i *= 10;
-    }
-    return (octal);*/
-    return;
+    unsigned int octal = va_arg(e->pa, unsigned int);
+    tmp = ft_printf_itoabase(octal, 8);
+    ft_printf_add_to_buffer(e, tmp, 0);
 }

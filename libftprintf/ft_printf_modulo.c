@@ -9,14 +9,17 @@ static int      ft_printf_field_width(t_env *e, char *format)
     int start;
 
     start = e->i;
-    while (format[e->i] && format[e->i] >= '1' && format[e->i] <= '9')
+    if (format[e->i] >= '1' && format[e->i] <= '9')
     {
-        e->i++;
-    }
-    if (start != e->i)
-    {
-        e->field_width = ft_atoi(ft_strsub(format, start, (e->i+1) - start));
-        return (0);
+        while (format[e->i] && format[e->i] >= '0' && format[e->i] <= '9')
+        {
+            e->i++;
+        }
+        if (start != e->i)
+        {
+            e->field_width = ft_atoi(ft_strsub(format, start, (e->i+1) - start));
+            return (0);
+        }
     }
     return (-1);
 }

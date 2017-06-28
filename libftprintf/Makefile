@@ -20,6 +20,7 @@ SRC = 	ft_printf_precision.c ft_printf_conversion.c ft_printf_width.c \
 		ft_printf_omaj.c ft_printf_o.c ft_printf_u.c \
 		ft_printf_umaj.c ft_printf_x.c ft_printf_xmaj.c ft_printf_c.c \
 		ft_printf_str_reverse.c ft_printf_itoabase.c  ft_printf_itoabase_si.c \
+		ft_printf_itoabase_si.c ft_printf_itoabase_uli.c ft_printf_itoabase_sli.c\
 
 
 OBJS = $(SRC:.c=.o)

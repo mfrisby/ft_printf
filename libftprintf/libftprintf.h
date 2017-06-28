@@ -40,6 +40,8 @@ typedef struct		s_env
 void    			ft_printf_special_char(t_env *e, char *format);
 char				*ft_printf_itoabase(unsigned int nbr, int base);
 char				*ft_printf_itoabase_si(signed int nbr, int base);
+char				*ft_printf_itoabase_uli(unsigned long nbr, int base);
+char				*ft_printf_itoabase_sli(signed long nbr, int base);
 char				*ft_printf_str_reverse(char *str);
 void    			ft_printf_modulo(t_env *e, char *format);
 /** FLAGS **/
