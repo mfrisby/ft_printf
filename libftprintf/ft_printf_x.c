@@ -32,7 +32,7 @@ static void     checkdiesezeroflag(t_env *e, char *tmp)
         ft_printf_add_to_buffer(e, "0x", 0);
         e->field_width -= 2;
     }
-    while (e->flag_zero == 1 && i < e->field_width)
+    while (e->flag_zero == 1 && e->flag_moins == 0 && i < e->field_width)
     {
         e->result[e->index] = '0';
         e->index++;
