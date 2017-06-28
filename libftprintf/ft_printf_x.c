@@ -11,7 +11,6 @@ static void     checkdiesezeroflag(t_env *e, char *tmp)
         ft_printf_add_to_buffer(e, "0x", 0);
        // e->field_width -= 2;
     }
-    printf("zero: %d\nmoins: %d\nfield: %d\nprecision: %d\n", e->flag_zero, e->flag_moins, e->field_width, e->precision);
     while (e->flag_zero == 1 && e->flag_moins == 0 && i <= e->field_width && i <= e->precision)
     {
         ft_printf_add_to_buffer(e, "0", 0);
