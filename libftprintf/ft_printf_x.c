@@ -21,12 +21,23 @@ static void ft_printf_add_to_buffer(t_env *e, char *s, int start)
 }
 
 
-static void     checkdieseflag(t_env *e, char *tmp)
+static void     checkdiesezeroflag(t_env *e, char *tmp)
 {
+    int i;
+
+    i = ft_strlen(tmp);
     if (e->flag_diese == 1 && ft_strcmp("0", tmp) != 0 && 
         ft_strcmp("-0", tmp) != 0 && ft_strcmp("+0", tmp) != 0)
     {
         ft_printf_add_to_buffer(e, "0x", 0);
+        e->field_width -= 2;
+    }
+    while (e->flag_zero == 1 && i < e->field_width)
+    {
+        e->result[e->index] = '0';
+        e->index++;
+        e->size++;
+        i++;
     }
 }
 
@@ -43,7 +54,7 @@ void    ft_printf_x(t_env *e)
         tmp[i] = ft_tolower(tmp[i]);
         i++;
     }
-    checkdieseflag(e, tmp);
+    checkdiesezeroflag(e, tmp);
     ft_printf_add_to_buffer(e, tmp, 0);
     //ft_putendl(tmp);
     return;

@@ -15,7 +15,6 @@ static int      ft_printf_field_width(t_env *e, char *format)
     }
     if (start != e->i)
     {
-	    ft_putendl("ft_printf_field_width");
         e->field_width = ft_atoi(ft_strsub(format, start, e->i - start));
         return (0);
     }
@@ -36,7 +35,6 @@ static int      ft_printf_isflag(char c, t_env *e)
         e->flag_diese = 1;
     else
         return (-1);
-    ft_putendl("ft_printf_isflag");
     e->i++;
     return (0);
 }
