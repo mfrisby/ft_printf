@@ -49,18 +49,18 @@ int	    			ft_printf_length(t_env *e, char *format);
 /** CONVERSION **/
 int	    			ft_printf_conversion(t_env *e, char c);
 void     			ft_printf_s(t_env *);
-void     			ft_printf_smaj(void);
-void     			ft_printf_p(void);
+void     			ft_printf_smaj(t_env *e);
+void     			ft_printf_p(t_env *e);
 void     			ft_printf_di(t_env *e);
-void     			ft_printf_dmaj(void);
-void     			ft_printf_omaj(void);
-void     			ft_printf_o(void);
-void     			ft_printf_u(void);
-void     			ft_printf_umaj(void);
+void     			ft_printf_dmaj(t_env *e);
+void     			ft_printf_omaj(t_env *e);
+void     			ft_printf_o(t_env *e);
+void     			ft_printf_u(t_env *e);
+void     			ft_printf_umaj(t_env *e);
 void    			ft_printf_x(t_env *e);
 void    			ft_printf_xmaj(t_env *e);
 void     			ft_printf_c(t_env *e);
-void     			ft_printf_cmaj(void);
+void     			ft_printf_cmaj(t_env *e);
 /** BUFFER **/
 void 				ft_printf_add_to_buffer(t_env *e, char *s, int start);
 void    			ft_printf_buffer_flush(t_env *e);

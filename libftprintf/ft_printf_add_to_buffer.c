@@ -2,7 +2,7 @@
 
 void ft_printf_add_to_buffer(t_env *e, char *s, int start)
 {
-    while (e->index <= 3999 && s[start] && start < e->precision)
+    while (e->index <= 3999 && s[start])
     {
         e->result[e->index] = s[start];
         e->index++;
