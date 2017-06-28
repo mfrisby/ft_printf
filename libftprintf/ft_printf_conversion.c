@@ -1,7 +1,6 @@
 #include "libftprintf.h"
 
 int        ft_printf_conversion(t_env *e, char c){
-    ft_putendl("ft_printf_conversion");
     if (c == 'u')
         ft_printf_u();
     else if (c == 'U')
