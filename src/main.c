@@ -14,8 +14,33 @@
 
 int		main(int ac, char **av)
 {
+
 	int ret1 = 0;
 	int ret2 = 0;
+
+	ft_putendl("\n test flag");
+	int tata = -12;
+	ft_putstr("printf: ");
+	ret1= printf("%10.2d \n", tata);
+	ft_putstr("ft_printf: ");
+	ret2 = ft_printf("%10.2d \n", tata);
+	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
+
+	ft_putstr("printf: ");
+	ret1= printf("%30.12o \n", tata);
+	ft_putstr("ft_printf: ");
+	ret2 = ft_printf("%30.12o \n", tata);
+	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
+
+
+	ft_putstr("printf: ");
+	ret1= printf("%30.12u \n", tata);
+	ft_putstr("ft_printf: ");
+	ret2 = ft_printf("%30.12u \n", tata);
+	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
+
+
+
 	/** STRING 
 	ft_putstr("STRING\n");
 	char *toto = "012345678910";
@@ -34,7 +59,7 @@ int		main(int ac, char **av)
 	ret2 = ft_printf("%c \n", tutu);
 	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
 
-	/** HEXA x **/
+	/** HEXA x 
 	ft_putstr("\nx HEXA\n");
 	int tata = -12;
 	ft_putstr("printf: ");
@@ -48,7 +73,7 @@ int		main(int ac, char **av)
 	ft_putstr("ft_printf: ");
 	ret2 = ft_printf("%.34x \n", tata);
 	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
-
+**/
 	/** HEXA X 
 	ft_putstr("\nX HEXA\n");
 	int titi = -12;

@@ -58,7 +58,7 @@ void    ft_printf_modulo(t_env *e, char *format)
             continue;
         if (ft_printf_precision(e, format) == 0)
             continue;
-        if (ft_printf_length(e, format) == 0)
+        if (ft_printf_length(e, format) == 0)//modificateur de longueur
             continue;
         e->i+=1;
     }
