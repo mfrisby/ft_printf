@@ -25,6 +25,7 @@ char		*ft_printf_itoabase_si(signed int nbr, int base)
 	while (nbr != 0)
 	{
 		temp = nbr % base;
+		(temp < 0) ? temp-- : temp;
 		buff[cmp] = lettre[temp];
 		cmp++;
 		nbr /= base;

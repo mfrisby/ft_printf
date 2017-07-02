@@ -34,6 +34,7 @@ typedef struct		s_env
 	int				precision;
 	int				precision_in_arg;
 	int				field_width;
+	int				neg;
 	va_list			pa;
 }					t_env;
 
@@ -67,6 +68,7 @@ void     			ft_printf_cmaj(t_env *e);
 void 				ft_printf_add_to_buffer(t_env *e, char *s, int start);
 void    			ft_printf_buffer_flush(t_env *e);
 /** LIBFT **/
+void				ft_putendl(char const *s);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_isdigit(int c);
@@ -84,5 +86,7 @@ void				ft_putstr(char const *s);
 void				ft_putchar(char c);
 char				*ft_strnew(size_t size);
 int					ft_printf(const char *restrict format, ...);
+char				*ft_strdup(const char *s1);
+char	*ft_itoa(int n);
 
 #endif

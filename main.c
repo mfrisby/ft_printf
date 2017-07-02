@@ -19,6 +19,7 @@ int		main(int ac, char **av)
 	int ret2 = 0;
 
 	ft_putstr("\n test flag\n");
+
 	int tata = -12;
 	ft_putstr("printf: ");
 	ret1= printf("%10.2d \n", tata);
@@ -27,20 +28,52 @@ int		main(int ac, char **av)
 	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
 
 	ft_putstr("printf: ");
-	ret1= printf("%30.12o \n", tata);
+	ret1= printf("%10.12d \n", tata);
 	ft_putstr("fprint: ");
-	ret2 = ft_printf("%30.12o \n", tata);
+	ret2 = ft_printf("%10.12d \n", tata);
 	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
 
-
 	ft_putstr("printf: ");
-	ret1= printf("%30.12u \n", tata);
+	ret1= printf("%12d \n", tata);
 	ft_putstr("fprint: ");
-	ret2 = ft_printf("%30.12u \n", tata);
+	ret2 = ft_printf("%12d \n", tata);
 	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
 
+	ft_putstr("printf: ");
+	ret1= printf("%.12d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%.12d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
 
+	ft_putstr("printf: ");
+	ret1= printf("%010d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%010d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+	
+	ft_putstr("printf: ");
+	ret1= printf("%0.10d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%0.10d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
 
+	ft_putstr("printf: ");
+	ret1= printf("% 010d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("% 010d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putstr("printf: ");
+	ret1= printf("%0-10d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%-010d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putstr("printf: ");
+	ret1= printf("%+10d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%+10d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
 	/** STRING 
 	ft_putstr("STRING\n");
 	char *toto = "012345678910";

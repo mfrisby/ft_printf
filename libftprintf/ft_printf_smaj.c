@@ -2,6 +2,7 @@
 
 void    ft_printf_smaj(t_env *e)
 {
-    ft_putnbr(e->i);
+	(void)e;
+    ft_putendl("ft_printf_smaj");
     return;
 }

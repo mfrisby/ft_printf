@@ -1,4 +1,5 @@
 #include "libftprintf.h"
+
 static char     *remove_min(char *tmp)
 {
     int i;
@@ -19,10 +20,26 @@ static char     *remove_min(char *tmp)
 static void     checkfield(t_env *e, char *tmp)
 {
     int i;
+    int j;
     int y;
 
     i = ft_strlen(tmp);
-    y = i;
+    j = e->field_width - i;
+    y =(e->neg == 1) ? i - 1 : i;
+    if (e->field_width > 0 && e->precision == 0)
+    {
+        if (i >= e->field_width)
+            return;
+        while (j > 0)
+        {
+            ft_printf_add_to_buffer(e, " ", 0);
+            j--;
+        }
+    }
+    if (e->precision < e->field_width)
+        e->flag_zero = 0;
+    if (i >= e->field_width && e->field_width <= e->precision)
+        return;
     while (i < (e->field_width - (e->precision - y)))
     {
         if (e->flag_zero)
@@ -52,24 +69,31 @@ static void     checkdiesezeroflag(t_env *e, char *tmp)
         y++;
     }
 }
+
 void    ft_printf_di(t_env *e)
 {
     char *tmp;
     char *tmp2;
 
     signed int deci = va_arg(e->pa, signed int);
-    tmp = ft_printf_itoabase_si(deci, 10);
+    tmp = ft_strdup(ft_itoa(deci));
     if (tmp[0] == '-')
     {
+        e->neg = 1;
         tmp2 = remove_min(tmp);
         checkfield(e, tmp);
         ft_printf_add_to_buffer(e, "-", 0);
         checkdiesezeroflag(e, tmp2);
         ft_printf_add_to_buffer(e, tmp2, 0);
+        e->neg = 0;
         return;
     }
     else
+    {
+        checkfield(e, tmp);
         checkdiesezeroflag(e, tmp);
+        ft_printf_add_to_buffer(e, tmp, 0);
+        return;
+    }
     ft_printf_add_to_buffer(e, tmp, 0);
-    return;
 }
