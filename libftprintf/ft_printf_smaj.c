@@ -1,7 +1,7 @@
 #include "libftprintf.h"
 
-void    ft_printf_smaj()
+void    ft_printf_smaj(t_env *e)
 {
-    ft_putendl("ft_printf_smaj");
+    ft_putnbr(e->i);
     return;
 }
