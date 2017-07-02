@@ -44,7 +44,7 @@ char	*ft_printf_width(char *moon, char *result, int *i)
 		(*i)++;
 	}
 	start = *i;
-	while (moon[*i] != '\0' && ft_isdigit(moon[*i]) == 1)
+	while (moon[*i] != '\0' && (ft_isdigit(moon[*i])) == 1)
 	{
 		(*i)++;
 	}

@@ -12,14 +12,12 @@
 
 NAME =	ft_printf
 
-SRC = 	src/main.c \
-		src/ft_printf.c \
-		libft/libft.a \
+SRC = 	main.c \
 		libftprintf/libftprintf.a \
 
 OBJ = 	$(SRC:.c=.o)
 
-INCLUDE = -I ./include
+INCLUDE = -I ./
 
 FLAG =	#-Wall -Wextra -Werror -g
 
@@ -28,7 +26,6 @@ INC_FILE = include/ft_printf.h libft/libft.h libftprintf/libftprintf.h
 all: $(NAME)
 
 $(NAME):
-	@make -C libft
 	@make -C libftprintf
 	@gcc $(FLAG) $(SRC) $(INCLUDE) -o $(NAME)
 	@echo "\033[32mCompilation OK\033[m"
@@ -36,12 +33,10 @@ $(NAME):
 clean:
 	@rm -rf $(OBJ)
 	@rm -rf ft_printf.dSYM
-	@make -C libft/ clean
 	@make -C libftprintf/ clean
 	@echo "\033[33mclean done\033[m"
 
 fclean: 		clean
-	@make -C ./libft fclean
 	@make -C ./libftprintf fclean
 	@/bin/rm -f $(NAME)
 	@echo "\033[33mfclean done\033[m"

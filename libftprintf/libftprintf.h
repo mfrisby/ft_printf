@@ -13,10 +13,10 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include "../libft/libft.h"
-# include "../include/ft_printf.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 typedef struct		s_env
 {
@@ -66,5 +66,23 @@ void     			ft_printf_cmaj(t_env *e);
 /** BUFFER **/
 void 				ft_printf_add_to_buffer(t_env *e, char *s, int start);
 void    			ft_printf_buffer_flush(t_env *e);
+/** LIBFT **/
+char				*ft_strcpy(char *dst, const char *src);
+char				*ft_strjoin(char const *s1, char const *s2);
+int					ft_isdigit(int c);
+void				ft_bzero(void *s, size_t n);
+void				*ft_memset(void *b, int c, size_t len);
+void				ft_putnbr(int n);
+void				ft_putstr(char const *s);
+int					ft_strcmp(const char *s1, const char *s2);
+int					ft_tolower(int c);
+int					ft_atoi(const char *str);
+char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_itoa(int n);
+size_t				ft_strlen(const char *s);
+void				ft_putstr(char const *s);
+void				ft_putchar(char c);
+char				*ft_strnew(size_t size);
+int					ft_printf(const char *restrict format, ...);
 
 #endif
