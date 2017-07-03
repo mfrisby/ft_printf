@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maki <maki@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 14:43:54 by mfrisby           #+#    #+#             */
-/*   Updated: 2017/06/27 17:13:43 by ysan-seb         ###   ########.fr       */
+/*   Updated: 2017/07/03 15:06:28 by maki             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ void				ft_putchar(char c);
 char				*ft_strnew(size_t size);
 int					ft_printf(const char *restrict format, ...);
 char				*ft_strdup(const char *s1);
-char	*ft_itoa(int n);
-
+char				*ft_itoa(int n);
+/** MECANIQUE FLAG ZERO & MORE **/
+char     			*remove_min(char *tmp);
+void     			checkfield(t_env *e, char *tmp);
+void     			checkdiesezeroflag(t_env *e, char *tmp);
 #endif

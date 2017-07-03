@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+         #
+#    By: maki <maki@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/09 15:14:15 by mfrisby           #+#    #+#              #
-#    Updated: 2017/06/27 17:12:37 by ysan-seb         ###   ########.fr        #
+#    Updated: 2017/07/03 15:07:49 by maki             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = 	ft_printf_precision.c ft_printf_conversion.c ft_printf_width.c \
 		ft_printf_itoabase_si.c ft_printf_itoabase_uli.c ft_printf_itoabase_sli.c\
 		ft_strsub.c ft_atoi.c ft_putnbr.c ft_tolower.c ft_strcmp.c ft_memset.c ft_bzero.c ft_strdup.c ft_itoa.c\
 		ft_putstr.c ft_putchar.c ft_strlen.c ft_strnew.c ft_strjoin.c ft_isdigit.c ft_strcpy.c ft_putendl.c\
+		ft_printf_remove_min.c ft_printf_checkfield.c ft_printf_checkdiesezeroflag.c \
 
 
 OBJS = $(SRC:.c=.o)
