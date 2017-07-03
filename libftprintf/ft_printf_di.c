@@ -26,7 +26,6 @@ static void     checkfield(t_env *e, char *tmp)
     i = ft_strlen(tmp);
     j = e->field_width - i;
     y =(e->neg == 1) ? i - 1 : i;
-    //printf("%d %d\n", e->field_width, e->precision);
     if (e->flag_moins == 1)
     {
         e->size += (j - 1);
@@ -55,7 +54,6 @@ static void     checkfield(t_env *e, char *tmp)
     }
     if (e->precision < e->field_width)
         e->flag_zero = 0;
-    //printf("flag_zero = %d\n", e->flag_zero);
     if (i >= e->field_width && e->field_width <= e->precision)
         return;
     while (i < (e->field_width - (e->precision - y)))
@@ -95,7 +93,6 @@ void    ft_printf_di(t_env *e)
     char *tmp;
     char *tmp2;
 
- //   printf("flag_zero = %d\n", e->flag_zero);
     signed int deci = va_arg(e->pa, signed int);
     tmp = ft_strdup(ft_itoa(deci));
     if (tmp[0] == '-' && e->flag_zero == 0)

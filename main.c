@@ -11,167 +11,269 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+static void testflags()
+{
+	int ret1 = 0;
+	int ret2 = 0;
+	ft_putendl("\nCheck flag\n");
+
+	char *s = "coucou";
+	ft_putendl("\ns Conversion");
+	ft_putstr("printf: ");
+	ret1 = printf("%- 012.5s \n", s);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%- 012.5s \n", s);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nS Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%S \n", s);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%S \n", s);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	void *p = s;
+	ft_putendl("\np Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%-012p \n", p);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%-012p \n",p);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	int tata = -12;
+	ft_putendl("\n+012.13d Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%+012.13d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	long int li = 12345678;
+	ft_putendl("\nD Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%D \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%D \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\ni Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("% 4.12i \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("% 4.12i \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	unsigned int jaja = 4567;
+	ft_putendl("\no Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%#-+ 12.13o \n", jaja);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%%#-+ 12.13o \n", jaja);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nO Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%O \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%O \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nx Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%#2.12x \n", jaja);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%#2.12x \n", jaja);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nX Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("% 10X \n", jaja);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("% 10X \n", jaja);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	char c = 'z';
+	ft_putendl("\nc Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%+12c \n", c);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%+12c \n", c);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nC Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%C \n", c);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%C \n", c);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nu Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("% 012.13u \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("% 012.13u \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nU Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%U \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%U \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+	
+	
+}
+
+static void testconversion()
+{
+	int ret1 = 0;
+	int ret2 = 0;
+	ft_putendl("\nCheck Conversion\n");
+
+	char *s = "coucou";
+	ft_putendl("\ns Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%s \n", s);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%s \n", s);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nS Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%S \n", s);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%S \n", s);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	void *p = s;
+	ft_putendl("\np Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%p \n", p);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%p \n",p);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	int tata = -12;
+	ft_putendl("\nd Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	long int li = 12345678;
+	ft_putendl("\nD Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%D \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%D \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\ni Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%i \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%i \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	unsigned int jaja = 4567;
+	ft_putendl("\no Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%o \n", jaja);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%o \n", jaja);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nO Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%O \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%O \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nx Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%x \n", jaja);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%x \n", jaja);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nX Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%X \n", jaja);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%X \n", jaja);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	char c = 'z';
+	ft_putendl("\nc Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%c \n", c);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%c \n", c);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nC Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%C \n", c);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%C \n", c);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nc Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%u \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%u \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nC Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%U \n", li);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%U \n", li);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+}
+
+static void othertest()
+{
+	int ret1 = 0;
+	int ret2 = 0;
+	ft_putendl("\nC Modulo");
+	ft_putstr("printf: ");
+	ret1= printf("%% chalom chabbat\n");
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%% chalom chabbat\n");
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nC Mulitple saut de ligne");
+	ft_putstr("printf: ");
+	ret1= printf("%% chalom chabbat \n coucou\n");
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%% chalom chabbat \n coucou\n");
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nC Mulitple conversions");
+	ft_putstr("printf: ");
+	ret1= printf("%% %s coucou %c yep %+d %i\n", "ca va ", 12, -12);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%% %s coucou %c yep %+d %i\n", "ca va ", 12, -12);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+}
 
 int		main(int ac, char **av)
 {
-
 	int ret1 = 0;
 	int ret2 = 0;
-
-	ft_putstr("\n test flag\n");
-
 	int tata = -12;
-	ft_putstr("printf: ");
-	ret1= printf("%10.2d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%10.2d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
 
-	ft_putstr("printf: ");
-	ret1= printf("%10.12d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%10.12d \n", tata);
-	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
-
-	ft_putstr("printf: ");
-	ret1= printf("%12d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%12d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
-
-	ft_putstr("printf: ");
-	ret1= printf("%.12d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%.12d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
-
-	ft_putstr("printf: ");
-	ret1= printf("%010d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%010d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
-	
-	ft_putstr("printf: ");
-	ret1= printf("%0.10d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%0.10d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
-
-	ft_putstr("printf: ");
-	ret1= printf("% 010d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("% 010d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
-
-	ft_putstr("printf: ");
-	ret1= printf("%0-10d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%-010d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
-
-	ft_putstr("printf: ");
-	ret1= printf("%+10d \n", tata);
-	ft_putstr("fprint: ");
-	ret2 = ft_printf("%+10d \n", tata);
-	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
-	/** STRING 
-	ft_putstr("STRING\n");
-	char *toto = "012345678910";
-	ft_putstr("printf: ");
-	ret1= printf("%.51s\n", toto);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%.15s\n", toto);
-	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
-
-	/** CHAR 
-	ft_putstr("\nCHAR\n");
-	int tutu = 'f';
-	ft_putstr("printf: ");
-	ret1= printf("%c \n", tutu);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%c \n", tutu);
-	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
-
-	/** HEXA x 
-	ft_putstr("\nx HEXA\n");
-	int tata = -12;
-	ft_putstr("printf: ");
-	ret1= printf("%010.12x \n", tata);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%010.12x \n", tata);
-	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
-
-	ft_putstr("printf: ");
-	ret1= printf("%.34x \n", tata);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%.34x \n", tata);
-	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
-**/
-	/** HEXA X 
-	ft_putstr("\nX HEXA\n");
-	int titi = -12;
-	ft_putstr("printf: ");
-	ret1= printf("%#X \n", titi);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%#X \n", titi);
-	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
-
-	/**OCTAL 
-	ft_putstr("\no (octal non signe)\n");
-	unsigned int soso = -12;
-	ft_putstr("printf: ");
-	ret1= printf("%o \n", soso);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%o \n", soso);
-	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
-
-	/**POINTEUR 
-	ft_putstr("\np POINTEUR\n");
-	int susu = -12;
-	ft_putstr("printf: ");
-	ret1= printf("%p \n", (void*)susu);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%p \n", (void*)susu);
-	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
-
-
-	/**INT 
-	ft_putstr("\nd (decimal signe)\n");
-	int sasa = 21;
-	ft_putstr("printf: ");
-	ret1= printf("%d \n", sasa);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%d \n", sasa);
-	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
-
-
-	/**INT 
-	ft_putstr("\n u (chiffre decimal non signe) \n");
-	int sasua = -241;
-	ft_putstr("printf: ");
-	ret1= printf("%u \n", sasua);
-	ft_putstr("ft_printf: ");
-	ret2 = ft_printf("%u \n", sasua);
-	printf("\nprintf ret = %d -- ft_printf ret = %d\n", ret1, ret2);**/
-
-/** 5000 char **/
-/*	char fake[5000];
-	int toto = 0;
-	while (toto < 4800)
-	{
-		fake[toto] = 'c';
-		toto++;
-	}
-	fake[4800] = 't';
-	int ret = ft_printf("%s", fake);
-	ft_putchar('\n');
-
-	int ret2 = printf("%s", fake);
-
-	printf("\nret = %d -- ret2 == %d\n", ret, ret2);
-*/
-/** main arg **/
-/*
+	if (ac == 2 && av[1][0] == '0')
+		othertest();
+	if (ac == 2 && av[1][0] == '1')
+		testconversion();
+	if (ac == 2 && av[1][0] == '2')
+		testflags();
+	/*
 	int ret = 0;
 	int ret2 = 0;
 	if (ac == 2)

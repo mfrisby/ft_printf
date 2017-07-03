@@ -13,6 +13,13 @@ static void ft_printf_init_flags(t_env *e)
 	e->precision = 0;
 	e->precision_in_arg = 0;
 	e->field_width = 0;
+	e->m_h = 0;
+	e->m_hh = 0;
+	e->m_l = 0;
+	e->m_ll = 0;
+	e->m_j = 0;
+	e->m_z = 0;
+	e->neg = 0;
 }
 
 static void ft_printf_init(t_env *e)
@@ -22,7 +29,6 @@ static void ft_printf_init(t_env *e)
 	e->index =0;//index buffer
 	e->nb_arg = 0;
 	ft_bzero(e->result, 4000);
-	e->nb_arg = 0;
 	ft_printf_init_flags(e);
 }
 
