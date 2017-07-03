@@ -35,6 +35,12 @@ typedef struct		s_env
 	int				precision_in_arg;
 	int				field_width;
 	int				neg;
+	int				m_h;
+	int				m_hh;
+	int				m_l;
+	int				m_ll;
+	int				m_j;
+	int				m_z;
 	va_list			pa;
 }					t_env;
 
