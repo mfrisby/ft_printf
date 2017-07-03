@@ -311,10 +311,16 @@ static void othertest()
 	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
 }
 
-int		main(int ac, char **av)
+static void testetoile()
 {
 	printf("printf: %.*d\n", 4,  3);
 	ft_printf("fprint: %.*d\n", 4,  3);
+
+	printf("printf: %*d\n", 4,  3);
+	ft_printf("fprint: %*d\n", 4,  3);
+}
+int		main(int ac, char **av)
+{
 	if (ac == 2 && av[1][0] == '0')
 		othertest();
 	if (ac == 2 && av[1][0] == '1')
@@ -323,6 +329,8 @@ int		main(int ac, char **av)
 		testflags();
 	if (ac == 2 && av[1][0] == '3')
 		testdflag();
+	if (ac == 2 && av[1][0] == '4')
+		testetoile();
 	/*
 	int ret = 0;
 	int ret2 = 0;
