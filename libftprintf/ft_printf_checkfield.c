@@ -9,8 +9,10 @@ void     checkfield(t_env *e, char *tmp)
     i = ft_strlen(tmp);
     j = e->field_width - i;
     y =(e->neg == 1) ? i - 1 : i;
-    if (e->flag_plus == 1)
+    if (e->flag_plus == 1 && e->flag_zero == 1)
     {
+        if (e->neg == 0)
+            ft_printf_add_to_buffer(e, "+", 0);
         e->precision = 0;
         return ;
     }
