@@ -124,6 +124,56 @@ static void testflags()
 	
 }
 
+static void testdflag()
+{
+	int ret1 = 0;
+	int ret2 = 0;
+	int tata = 12;
+
+	ft_putendl("\nd Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%-.12d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%-.12d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nd Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%-12d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%-12d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nd Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%+21.13d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%+21.13d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nd Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("% -12.2d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("% -12.2d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nd Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%03.12d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%03.12d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+	ft_putendl("\nd Conversion");
+	ft_putstr("printf: ");
+	ret1= printf("%-+05d \n", tata);
+	ft_putstr("fprint: ");
+	ret2 = ft_printf("%-+05d \n", tata);
+	printf("printf ret = %d -- fprint ret = %d\n", ret1, ret2);
+
+}
+
 static void testconversion()
 {
 	int ret1 = 0;
@@ -263,16 +313,16 @@ static void othertest()
 
 int		main(int ac, char **av)
 {
-	int ret1 = 0;
-	int ret2 = 0;
-	int tata = -12;
-
+	printf("printf: %.*d\n", 4,  3);
+	ft_printf("fprint: %.*d\n", 4,  3);
 	if (ac == 2 && av[1][0] == '0')
 		othertest();
 	if (ac == 2 && av[1][0] == '1')
 		testconversion();
 	if (ac == 2 && av[1][0] == '2')
 		testflags();
+	if (ac == 2 && av[1][0] == '3')
+		testdflag();
 	/*
 	int ret = 0;
 	int ret2 = 0;

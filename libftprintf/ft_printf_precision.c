@@ -41,13 +41,15 @@ int		ft_printf_precision(t_env *e, char *format)
 {
     int start;
 
-    if (format[e->i] != '.' || (format[e->i] == '.' && !ft_isdigit(format[e->i + 1])))
+    if (format[e->i] != '.')
         return -1;
     e->i++;
-    if (format[e->i] == '*')//precision dans arg
+    // (format[e->i] == '.' && (!ft_isdigit(format[e->i + 1] || format[e->i + 1] != '*'))))
+    if (format[e->i] && format[e->i] == '*')//precision dans arg
     {
-        e->precision_in_arg = 1;
-        return (-1);
+        e->precision = va_arg(e->pa, int);
+        e->i += 1;
+        return (0);
     }
     start = e->i;
     while (format[e->i] && format[e->i] >= '1' && format[e->i] <= '9')
