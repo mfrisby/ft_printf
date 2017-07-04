@@ -9,10 +9,12 @@ void     checkfield(t_env *e, char *tmp)
     i = ft_strlen(tmp);
     j = e->field_width - i;
     y =(e->neg == 1) ? i - 1 : i;
+    if (e->neg == 0 && e->flag_moins == 1 && e->flag_plus == 0)
+        ft_printf_add_to_buffer(e, " ", 0);
+    if (e->neg == 0  && e->flag_plus == 1 && e->precision < strlen(tmp))
+        ft_printf_add_to_buffer(e, "+", 0);
     if (e->flag_plus == 1 && e->flag_zero == 1)
     {
-        if (e->neg == 0)
-            ft_printf_add_to_buffer(e, "+", 0);
         e->precision = 0;
         return ;
     }
@@ -46,6 +48,10 @@ void     checkfield(t_env *e, char *tmp)
         e->flag_zero = 0;
     if (i >= e->field_width && e->field_width <= e->precision)
         return;
+    if (e->precision > strlen(tmp) && e->flag_plus == 1)
+        i++;
+    if (e->flag_plus == 1 && e->neg == 1)
+        i--;
     while (i < (e->field_width - (e->precision - y)))
     {
         if (e->flag_zero)
@@ -56,4 +62,6 @@ void     checkfield(t_env *e, char *tmp)
         }
         i++;
     }
+    if (e->precision > strlen(tmp) && e->flag_plus == 1 && e->flag_moins == 0 && e->neg == 0)
+        ft_printf_add_to_buffer(e, "+", 0);
 }
