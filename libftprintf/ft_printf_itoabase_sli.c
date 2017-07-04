@@ -1,26 +1,37 @@
 #include "libftprintf.h"
-
-char		*ft_printf_itoabase_sli(signed long nbr, int base)
+#include <limits.h>
+char		*ft_printf_itoabase_sli(signed long int nbr, int base)
 {
-	char	buff[512];
-	char	*lettre;
-	int		cmp;
-	int		temp;
+	char	*s;
+	int		div;
+	size_t	i;
 
-	cmp = 0;
-	temp = 0;
-	if (!(lettre = (char *)malloc(sizeof(char) * 17)))
-		return (NULL);
-	lettre = "0123456789ABCDEF";
-	ft_memset(buff, 0, 512);
-	if (nbr == 0)
-		buff[0] = '0';
-	while (nbr != 0)
+	i = 0;
+	div = 1;
+	s = ft_strnew(20);
+	if (nbr == LONG_MAX)
 	{
-		temp = nbr % base;
-		buff[cmp] = lettre[temp];
-		cmp++;
-		nbr /= base;
+		s = ft_strdup("9223372036854775807");
+		return s;
 	}
-	return (ft_printf_str_reverse(buff));
+	else if (nbr == LONG_MIN)
+	{
+		s = ft_strdup("-9223372036854775808");
+		return s;
+	}
+	else if (nbr < 0)
+	{
+		nbr *= -1;
+		s[i++] = '-';
+	}
+	while ((nbr / div) > 9 && ++i)
+		div *= 10;
+	while (nbr > 9)
+	{
+		s[i--] = nbr % 10 + '0';
+		nbr /= 10;
+	}
+	if (nbr >= 0)
+		s[i] = nbr + '0';
+	return (s);
 }
