@@ -27,10 +27,7 @@ int        ft_printf_conversion(t_env *e, char c){
     if (e->flag_moins == 1 && e->flag_zero == 1)
         e->flag_zero = 0;//min annule zero
     if (ft_printf_conversion2(e, c) == 1)
-    {
-        e->i += 1;
         return (0);
-    }
     if (c == 'u')
         ft_printf_u(e);
     else if (c == 'U')
@@ -44,9 +41,8 @@ int        ft_printf_conversion(t_env *e, char c){
     else if (c == '%')
         ft_printf_modulo(e);
     else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-        return (0);
+        return (1);
     else
         return (-1);
-    e->i++;
     return (0);
 }

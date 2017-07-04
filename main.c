@@ -351,8 +351,9 @@ int		main(int ac, char **av)
 	int ret1 = 0;
 	int ret2 = 0;
 
-	ft_printf("fprint: %-5%\n");
-	printf("printf: %-5%\n");
+	ft_printf("fprint: % Zoooo\n");
+	printf("printf: % Zoooo\n");
+
 	if (ac == 2 && av[1][0] == '0')
 		othertest();
 	if (ac == 2 && av[1][0] == '1')
