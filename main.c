@@ -319,8 +319,38 @@ static void testetoile()
 	printf("printf: %*d\n", 4,  3);
 	ft_printf("fprint: %*d\n", 4,  3);
 }
+
+static void testd()
+{
+	int ret1 = 0;
+	int ret2 = 0;
+
+	ft_putendl("\n test flag");
+	int tata = -12;
+	ft_putstr("printf: ");
+	ret1= printf("%10.2d \n", tata);
+	ft_putstr("ft_printf: ");
+	ret2 = ft_printf("%10.2d \n", tata);
+	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
+
+	ft_putstr("printf: ");
+	ret1= printf("%30.12o \n", tata);
+	ft_putstr("ft_printf: ");
+	ret2 = ft_printf("%30.12o \n", tata);
+	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
+
+
+	ft_putstr("printf: ");
+	ret1= printf("%30.12u \n", tata);
+	ft_putstr("ft_printf: ");
+	ret2 = ft_printf("%30.12u \n", tata);
+	printf("printf ret = %d -- ft_printf ret = %d\n", ret1, ret2);
+}
 int		main(int ac, char **av)
 {
+	int ret1 = 0;
+	int ret2 = 0;
+
 	if (ac == 2 && av[1][0] == '0')
 		othertest();
 	if (ac == 2 && av[1][0] == '1')
@@ -331,6 +361,8 @@ int		main(int ac, char **av)
 		testdflag();
 	if (ac == 2 && av[1][0] == '4')
 		testetoile();
+	if (ac == 2 && av[1][0] == '5')
+		testd();
 	/*
 	int ret = 0;
 	int ret2 = 0;
