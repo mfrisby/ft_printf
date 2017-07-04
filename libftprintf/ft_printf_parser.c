@@ -54,10 +54,7 @@ void    ft_printf_parser(t_env *e, char *format)
     while (format[e->i])
     {
         if (ft_printf_conversion(e, format[e->i]) == 0)
-        {
-            e->i+=1;
             break;
-        }
         if (ft_printf_isflag(format[e->i], e) == 0)
             continue;
         if (ft_printf_field_width(e, format) == 0)

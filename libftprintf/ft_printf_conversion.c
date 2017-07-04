@@ -44,5 +44,6 @@ int        ft_printf_conversion(t_env *e, char c){
         return (0);
     else
         return (-1);
+    e->i++;
     return (0);
 }
