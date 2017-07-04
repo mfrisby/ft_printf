@@ -1,6 +1,6 @@
 #include "libftprintf.h"
 
-static void putfields(t_env *e, char *s)
+static void ft_putfields(t_env *e, char *s)
 {
     int i;
     int len;
@@ -27,9 +27,9 @@ void    ft_printf_s(t_env *e)
     if (e->precision > 0 && (int)(ft_strlen(s))> e->precision)
         s = ft_strsub(s, 0, e->precision);
     if (e->flag_moins == 0)
-        putfields(e, s);
+        ft_putfields(e, s);
     ft_printf_add_to_buffer(e, s, 0);
     if (e->flag_moins == 1)
-        putfields(e, s);
+        ft_putfields(e, s);
     return;
 }

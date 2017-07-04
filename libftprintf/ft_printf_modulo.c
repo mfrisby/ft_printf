@@ -1,72 +1,30 @@
 #include "libftprintf.h"
-/*
-** %[flag][min width][precision][length modifier][conversion specifier]
-** Check flags then do conversion
-*/
-
-static int      ft_printf_field_width(t_env *e, char *format)
+static void ft_putfields(t_env *e, char *s)
 {
-    int start;
+    int i;
+    int len;
+    char c[2];
 
-    start = e->i;
-    if (format[e->i] == '*')
+    i = 0;
+    len = ft_strlen(s);
+    c[0] = e->flag_zero > 0 ? '0': ' ';
+    c[1] = '\0';
+    while (i + len < e->field_width)
     {
-        e->field_width = va_arg(e->pa, int);
-        e->i+=1;
-        return (0);
+        ft_printf_add_to_buffer(e, c, 0);
+        i++;
     }
-    if (format[e->i] >= '1' && format[e->i] <= '9')
-    {
-        while (format[e->i] && format[e->i] >= '0' && format[e->i] <= '9')
-        {
-            e->i++;
-        }
-        if (start != e->i)
-        {
-            e->field_width = ft_atoi(ft_strsub(format, start, (e->i+1) - start));
-            return (0);
-        }
-    }
-    return (-1);
 }
-
-static int      ft_printf_isflag(char c, t_env *e)
+void    ft_printf_modulo(t_env *e)
 {
-    if (c == '-')
-        e->flag_moins = 1;
-    else if (c == '+')
-        e->flag_plus = 1;
-    else if (c == ' ')
-        e->flag_space = 1;
-    else if (c == '0')
-        e->flag_zero = 1;
-    else if (c == '#')
-        e->flag_diese = 1;
-    else
-        return (-1);
-    e->i++;
-    return (0);
-}
+    char s[2];
 
-void    ft_printf_modulo(t_env *e, char *format)
-{
-    e->i+=1;//after %
-    while (format[e->i])
-    {
-        if (ft_printf_conversion(e, format[e->i]) == 0)
-        {
-            e->i+=1;
-            break;
-        }
-        if (ft_printf_isflag(format[e->i], e) == 0)
-            continue;
-        if (ft_printf_field_width(e, format) == 0)
-            continue;
-        if (ft_printf_precision(e, format) == 0)
-            continue;
-        if (ft_printf_length(e, format) == 0)//modificateur de longueur
-            continue;
-        e->i+=1;
-    }
-    return ;
+    s[0] = '%';
+    s[1] = '\0';
+    if (e->flag_moins == 0)
+        ft_putfields(e, s);
+    ft_printf_add_to_buffer(e, s, 0);
+    if (e->flag_moins == 1)
+        ft_putfields(e, s);
+    return;
 }
