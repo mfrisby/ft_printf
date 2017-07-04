@@ -40,6 +40,8 @@ int        ft_printf_conversion(t_env *e, char c){
         ft_printf_p(e);
     else if (c == '%')
         ft_printf_modulo(e);
+    else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+        return (0);
     else
         return (-1);
     return (0);
