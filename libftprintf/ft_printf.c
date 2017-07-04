@@ -50,7 +50,7 @@ static void	ft_printf_parse(t_env *e, char *format)
 	if (format[e->i] == 92)/* backslash */
 		ft_printf_special_char(e, format);//do e->i++;
 	else if (format[e->i] == '%' && format[e->i + 1])
-		ft_printf_modulo(e, format);//do e->i++;s
+		ft_printf_parser(e, format);//do e->i++;s
 	else
 		e->i+=1;//ignore , no comportement set
 }
