@@ -50,7 +50,7 @@ char				*ft_printf_itoabase_si(signed int nbr, int base);
 char				*ft_printf_itoabase_uli(unsigned long nbr, int base);
 char				*ft_printf_itoabase_sli(signed long nbr, int base);
 char				*ft_printf_str_reverse(char *str);
-void    			ft_printf_modulo(t_env *e, char *format);
+void    			ft_printf_parser(t_env *e, char *format);
 /** FLAGS **/
 int					ft_printf_precision(t_env *e, char *format);
 char				*ft_printf_width(char *moon, char *result, int *i);
@@ -70,6 +70,7 @@ void    			ft_printf_x(t_env *e);
 void    			ft_printf_xmaj(t_env *e);
 void     			ft_printf_c(t_env *e);
 void     			ft_printf_cmaj(t_env *e);
+void     			ft_printf_modulo(t_env *e);
 /** BUFFER **/
 void 				ft_printf_add_to_buffer(t_env *e, char *s, int start);
 void    			ft_printf_buffer_flush(t_env *e);
