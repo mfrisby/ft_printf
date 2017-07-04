@@ -38,6 +38,8 @@ int        ft_printf_conversion(t_env *e, char c){
         ft_printf_smaj(e);
     else if (c == 'p')
         ft_printf_p(e);
+    else if (c == '%')
+        ft_printf_modulo(e);
     else
         return (-1);
     return (0);
