@@ -11,15 +11,14 @@ static void ft_printf_init_flags(t_env *e)
 	e->flag_zero = 0;
 	e->field_width = 0;
 	e->precision = 0;
-	e->precision_in_arg = 0;
 	e->field_width = 0;
+	e->neg = 0;
 	e->m_h = 0;
 	e->m_hh = 0;
 	e->m_l = 0;
 	e->m_ll = 0;
 	e->m_j = 0;
 	e->m_z = 0;
-	e->neg = 0;
 }
 
 static void ft_printf_init(t_env *e)
@@ -69,7 +68,7 @@ int			ft_printf(const char *restrict format, ...)
 			ft_printf_add_char(&e, format[e.i]);
 		else
 			ft_printf_parse(&e, (char*)format);
-		//reinit flags
+		ft_printf_init_flags(&e);
 	}
 	ft_putstr(e.result);
 	va_end(e.pa);
