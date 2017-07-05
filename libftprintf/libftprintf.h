@@ -55,6 +55,7 @@ int					ft_printf_precision(t_env *e, char *format);
 char				*ft_printf_width(char *moon, char *result, int *i);
 int	    			ft_printf_length(t_env *e, char *format);
 /** CONVERSION **/
+size_t 				ft_printf_unicode(unsigned char *const buffer, const unsigned int code);
 int	    			ft_printf_conversion(t_env *e, char c);
 void     			ft_printf_s(t_env *);
 void     			ft_printf_smaj(t_env *e);
