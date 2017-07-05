@@ -62,11 +62,11 @@ void    ft_printf_parser(t_env *e, char *format)
         if (ft_printf_length(e, format) == 0)//modificateur de longueur
             continue;
         if (ft_printf_conversion(e, format[e->i]) == 0)
-        { 
+        {
             e->i+=1;
             break;
         }
-        if (ft_printf_conversion(e, format[e->i]) == 1)
+        else
             break;
         e->i+=1;
     }
