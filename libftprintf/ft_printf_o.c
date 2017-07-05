@@ -33,6 +33,7 @@ void    ft_printf_o(t_env *e)
 
     unsigned int octal = va_arg(e->pa, unsigned int);
     tmp = ft_itoabase_o(octal);
+    e->flag_plus = 0;
     if (tmp[0] == '-')
     {
         e->neg = 1;
