@@ -32,7 +32,6 @@ typedef struct		s_env
 	int				flag_space;
 	int				flag_zero;
 	int				precision;
-	int				precision_in_arg;
 	int				field_width;
 	int				neg;
 	int				m_h;

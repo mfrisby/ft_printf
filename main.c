@@ -351,9 +351,16 @@ int		main(int ac, char **av)
 	int ret1 = 0;
 	int ret2 = 0;
 
-	ft_printf("fprint: % Zoooo\n");
-	printf("printf: % Zoooo\n");
+	printf("printf: %.0%\n");
+	ft_printf("fprint: %.0%\n");
 
+
+	printf("printf: toto\n", "");
+	ft_printf("fprint: toto\n", "");
+
+
+//	printf("printf: %.3-12s toto\n", "lala");
+//	ft_printf("fprint: %-12s toto\n", "lala");
 	if (ac == 2 && av[1][0] == '0')
 		othertest();
 	if (ac == 2 && av[1][0] == '1')

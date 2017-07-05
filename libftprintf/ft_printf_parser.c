@@ -12,6 +12,11 @@ static int      ft_printf_field_width(t_env *e, char *format)
     if (format[e->i] == '*')
     {
         e->field_width = va_arg(e->pa, int);
+        if (e->field_width < 0)
+        {
+            e->flag_moins = 1;
+            e->field_width *= -1;
+        }
         e->i+=1;
         return (0);
     }
@@ -24,6 +29,11 @@ static int      ft_printf_field_width(t_env *e, char *format)
         if (start != e->i)
         {
             e->field_width = ft_atoi(ft_strsub(format, start, (e->i+1) - start));
+            if (e->field_width < 0)
+            {
+                e->flag_moins = 1;
+                e->field_width *= -1;
+            }
             return (0);
         }
     }

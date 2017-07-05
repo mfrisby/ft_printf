@@ -12,31 +12,6 @@
 
 #include "libftprintf.h"
 
-// int		ft_printf_precision(t_env *e, char *format)
-// {
-//     int start;
-
-//     if (format[e->i] != '.')
-//         return -1;
-//     e->i++;
-//     if (format[e->i] == '*')//precision dans arg
-//     {
-//         e->precision_in_arg = 1;
-//         return (-1);
-//     }
-//     start = e->i;
-//     while (format[e->i] && format[e->i] >= '1' && format[e->i] <= '9')
-//     {
-//         e->i++;
-//     }
-//     if (start < e->i)
-//     {
-//         e->precision = ft_atoi(ft_strsub(format, start, e->i - start));
-//         return (0);
-//     }
-//     return (-1);
-// }
-
 int		ft_printf_precision(t_env *e, char *format)
 {
     int start;
@@ -44,15 +19,19 @@ int		ft_printf_precision(t_env *e, char *format)
     if (format[e->i] != '.')
         return -1;
     e->i++;
-    // (format[e->i] == '.' && (!ft_isdigit(format[e->i + 1] || format[e->i + 1] != '*'))))
     if (format[e->i] && format[e->i] == '*')//precision dans arg
     {
         e->precision = va_arg(e->pa, int);
+        if (e->precision < 0)
+        {
+            e->precision = 0;
+            return (-1);
+        }
         e->i += 1;
         return (0);
     }
     start = e->i;
-    while (format[e->i] && format[e->i] >= '1' && format[e->i] <= '9')
+    while (format[e->i] && format[e->i] >= '0' && format[e->i] <= '9')
     {
         e->i++;
     }
