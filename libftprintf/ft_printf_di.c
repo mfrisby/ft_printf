@@ -7,6 +7,8 @@ void    ft_printf_di(t_env *e)
 
     signed int deci = va_arg(e->pa, signed int);
     tmp = ft_strdup(ft_itoa(deci));
+    if (e->flag_space == 1 && tmp[0] != '-' && e->flag_plus == 0)
+        ft_printf_add_to_buffer(e, " ", 0);
     if (tmp[0] == '-' && e->flag_zero == 0)
     {
         e->neg = 1;
