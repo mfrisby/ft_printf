@@ -1,39 +1,25 @@
 #include "libftprintf.h"
 #include <string.h>
 
-char	*ft_itoabase_o(unsigned int n)
-{
-	char	*s;
-	int		div;
-	size_t	i;
-
-	i = 0;
-	div = 1;
-	s = ft_strnew(20);
-	if (n < 0)
-	{
-		n *= -1;
-		s[i++] = '-';
-	}
-	while ((n / div) > 7 && ++i)
-		div *= 8;
-	while (n > 7)
-	{
-		s[i--] = n % 8 + '0';
-		n /= 8;
-	}
-	if (n >= 0)
-		s[i] = n + '0';
-	return (s);
-}
-
 void    ft_printf_o(t_env *e)
 {
     char *tmp;
     char *tmp2;
 
-    unsigned int octal = va_arg(e->pa, unsigned int);
-    tmp = ft_itoabase_o(octal);
+    if (e->m_ll)
+        tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned long long), 8);
+    else if (e->m_l)
+        tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned long), 8);
+    else if (e->m_j)
+        tmp = ft_printf_utoa_base(va_arg(e->pa, uintmax_t), 8);
+    else if (e->m_z)
+        tmp = ft_printf_utoa_base(va_arg(e->pa, size_t), 8);
+    else if (e->m_h)
+        tmp = ft_printf_utoa_base((unsigned short)va_arg(e->pa, unsigned int), 8);
+    else if (e->m_hh)
+        tmp = ft_printf_utoa_base((unsigned char)va_arg(e->pa, unsigned int), 8);
+    else
+        tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned int), 8);
     e->flag_plus = 0;
     if (tmp[0] == '-')
     {

@@ -6,7 +6,7 @@
 /*   By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 14:43:54 by mfrisby           #+#    #+#             */
-/*   Updated: 2017/07/06 16:02:04 by ysan-seb         ###   ########.fr       */
+/*   Updated: 2017/07/06 17:18:26 by ysan-seb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void     			ft_printf_modulo(t_env *e);
 void 				ft_printf_add_to_buffer(t_env *e, char *s, int start);
 void    			ft_printf_buffer_flush(t_env *e);
 /** LIBFT **/
+int					ft_toupper(int c);
 void				ft_putendl(char const *s);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strjoin(char const *s1, char const *s2);
