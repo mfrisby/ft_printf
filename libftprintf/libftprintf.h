@@ -99,8 +99,7 @@ int					ft_printf(const char *restrict format, ...);
 char				*ft_strdup(const char *s1);
 char				*ft_itoa(int n);
 /** MECANIQUE FLAG ZERO & MORE **/
-char     			*remove_min(char *tmp);
-void     			checkfield(t_env *e, char *tmp);
-void     			checkdiesezeroflag(t_env *e, char *tmp);
+char     			*remove_min(t_env *e, char *tmp);
+void        		ft_printf_putflags(t_env *e, char *s);
 
 #endif

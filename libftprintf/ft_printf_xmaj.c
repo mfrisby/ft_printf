@@ -25,7 +25,7 @@ void    ft_printf_xmaj(t_env *e)
         tmp[i] = ft_toupper(tmp[i]);
         i++;
     }
-    checkdiesezeroflag(e, tmp);
-    ft_printf_add_to_buffer(e, tmp, 0);
+    e->type = 'X';
+    ft_printf_putflags(e, tmp);   
     return;
 }

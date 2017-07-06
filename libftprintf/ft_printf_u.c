@@ -19,23 +19,25 @@ void    ft_printf_u(t_env *e)
         tmp = ft_printf_utoa_base((unsigned char)va_arg(e->pa, unsigned int), 10);
     else
         tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned int), 10);
-    if (tmp[0] == '-')
-    {
-        e->neg = 1;
-        tmp2 = remove_min(tmp);
-        checkfield(e, tmp);
-        ft_printf_add_to_buffer(e, "-", 0);
-        checkdiesezeroflag(e, tmp2);
-        ft_printf_add_to_buffer(e, tmp2, 0);
-        e->neg = 0;
-        return;
-    }
-    else
-    {
-        checkfield(e, tmp);
-        checkdiesezeroflag(e, tmp);
-        ft_printf_add_to_buffer(e, tmp, 0);
-        return;
-    }
-    ft_printf_add_to_buffer(e, tmp, 0);
+    e->type = 'u';
+    ft_printf_putflags(e, tmp);
+    // if (tmp[0] == '-')
+    // {
+    //     e->neg = 1;
+    //     tmp2 = remove_min(tmp);
+    //     checkfield(e, tmp);
+    //     ft_printf_add_to_buffer(e, "-", 0);
+    //     checkdiesezeroflag(e, tmp2);
+    //     ft_printf_add_to_buffer(e, tmp2, 0);
+    //     e->neg = 0;
+    //     return;
+    // }
+    // else
+    // {
+    //     checkfield(e, tmp);
+    //     checkdiesezeroflag(e, tmp);
+    //     ft_printf_add_to_buffer(e, tmp, 0);
+    //     return;
+    // }
+    // ft_printf_add_to_buffer(e, tmp, 0);
 }

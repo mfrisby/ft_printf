@@ -18,7 +18,7 @@ void    ft_printf_x(t_env *e)
         tmp = ft_printf_utoa_base((unsigned char)va_arg(e->pa, unsigned int), 16);
     else
         tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned int), 16);
-    checkdiesezeroflag(e, tmp);
-    ft_printf_add_to_buffer(e, tmp, 0);
+    e->type = 'x';
+    ft_printf_putflags(e, tmp);
     return;
 }
