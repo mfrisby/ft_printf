@@ -20,6 +20,7 @@ static int  ft_printf_conversion2(t_env *e, char c)
         ft_printf_dmaj(e);
     else
         return (-1);
+    e->type = c;
     return (1);
 }
 

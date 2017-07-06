@@ -19,6 +19,7 @@ static void ft_printf_init_flags(t_env *e)
 	e->m_ll = 0;
 	e->m_j = 0;
 	e->m_z = 0;
+	e->type = NULL;
 }
 
 static void ft_printf_init(t_env *e)

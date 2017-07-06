@@ -1,4 +1,5 @@
 #include "libftprintf.h"
+#include <string.h>
 
 char	*ft_itoabase_o(unsigned int n)
 {
