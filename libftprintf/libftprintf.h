@@ -6,7 +6,7 @@
 /*   By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 14:43:54 by mfrisby           #+#    #+#             */
-/*   Updated: 2017/07/06 13:26:59 by ysan-seb         ###   ########.fr       */
+/*   Updated: 2017/07/06 16:02:04 by ysan-seb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,5 @@ char				*ft_itoa(int n);
 char     			*remove_min(char *tmp);
 void     			checkfield(t_env *e, char *tmp);
 void     			checkdiesezeroflag(t_env *e, char *tmp);
-/** MODIFICATEUR DE LONGUEUR **/
-void    			ft_printf_ml(t_env *e, char **tmp);
-void    			ft_printf_ml_l(t_env *e, char **tmp);
-void    			ft_printf_ml_ll(t_env *e, char **tmp);
-void    			ft_printf_ml_h(t_env *e, char **tmp);
-void    			ft_printf_ml_hh(t_env *e, char **tmp);
-void    			ft_printf_ml_j(t_env *e, char **tmp);
-void    			ft_printf_ml_z(t_env *e, char **tmp);
+
 #endif
