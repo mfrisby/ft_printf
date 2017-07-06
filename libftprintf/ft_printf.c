@@ -10,7 +10,7 @@ static void ft_printf_init_flags(t_env *e)
 	e->flag_space = 0;
 	e->flag_zero = 0;
 	e->field_width = 0;
-	e->precision = -1;
+	e->precision = 0;
 	e->field_width = 0;
 	e->neg = 0;
 	e->m_h = 0;

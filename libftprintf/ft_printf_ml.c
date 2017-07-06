@@ -14,6 +14,4 @@ void    ft_printf_ml(t_env *e, char **tmp)
         ft_printf_ml_h(e, &tmp);
     else if (e->m_z == 1)
         ft_printf_ml_h(e, &tmp);
-    else
-        return;
 }
