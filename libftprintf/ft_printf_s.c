@@ -21,7 +21,13 @@ void    ft_printf_s(t_env *e)
 {
     char *s;
     
-    s = va_arg(e->pa, char*);
+    if (e->m_l == 1)
+    {
+        ft_printf_smaj(e);
+        return;
+    }
+    else
+        s = va_arg(e->pa, char*);
     if (s == NULL)
         s = ft_strdup("(null)");
     if (e->precision > 0 && (int)(ft_strlen(s))> e->precision)

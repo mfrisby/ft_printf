@@ -6,7 +6,13 @@ void    ft_printf_c(t_env *e)
     unsigned char uc;
 
     uc = 0;
-    c = va_arg(e->pa, int);
+    if (e->m_l == 1)
+    {
+        ft_printf_cmaj(e);
+        return;
+    }
+    else
+        c = va_arg(e->pa, int);
     while (c > 128)
     {
         c -= 128;
