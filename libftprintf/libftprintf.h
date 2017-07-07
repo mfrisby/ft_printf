@@ -6,17 +6,17 @@
 /*   By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 14:43:54 by mfrisby           #+#    #+#             */
-/*   Updated: 2017/07/06 17:18:26 by ysan-seb         ###   ########.fr       */
+/*   Updated: 2017/07/07 12:12:09 by ysan-seb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include <stdio.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct		s_env
 {
@@ -43,7 +43,7 @@ typedef struct		s_env
 	va_list			pa;
 }					t_env;
 
-void    			ft_printf_special_char(t_env *e, char *format);
+void				ft_printf_special_char(t_env *e, char *format);
 char				*ft_printf_stoa_base(long long nb, int base);
 char				*ft_printf_utoa_base(unsigned long long nb, int base);
 char				*ft_printf_itoabase(unsigned int nbr, int base);
@@ -51,32 +51,29 @@ char				*ft_printf_itoabase_si(signed int nbr, int base);
 char				*ft_printf_itoabase_uli(unsigned long nbr, int base);
 char				*ft_printf_itoabase_sli(signed long nbr, int base);
 char				*ft_printf_str_reverse(char *str);
-void    			ft_printf_parser(t_env *e, char *format);
-/** FLAGS **/
+void				ft_printf_parser(t_env *e, char *format);
 int					ft_printf_precision(t_env *e, char *format);
 char				*ft_printf_width(char *moon, char *result, int *i);
-int	    			ft_printf_length(t_env *e, char *format);
-/** CONVERSION **/
-size_t 				ft_printf_unicode(unsigned char *const buffer, const unsigned int code);
-int	    			ft_printf_conversion(t_env *e, char c);
-void     			ft_printf_s(t_env *);
-void     			ft_printf_smaj(t_env *e);
-void     			ft_printf_p(t_env *e);
-void     			ft_printf_di(t_env *e);
-void     			ft_printf_dmaj(t_env *e);
-void     			ft_printf_omaj(t_env *e);
-void     			ft_printf_o(t_env *e);
-void     			ft_printf_u(t_env *e);
-void     			ft_printf_umaj(t_env *e);
-void    			ft_printf_x(t_env *e);
-void    			ft_printf_xmaj(t_env *e);
-void     			ft_printf_c(t_env *e);
-void     			ft_printf_cmaj(t_env *e);
-void     			ft_printf_modulo(t_env *e);
-/** BUFFER **/
-void 				ft_printf_add_to_buffer(t_env *e, char *s, int start);
-void    			ft_printf_buffer_flush(t_env *e);
-/** LIBFT **/
+int					ft_printf_length(t_env *e, char *format);
+size_t				ft_printf_unicode(unsigned char *const buffer,
+		const unsigned int code);
+int					ft_printf_conversion(t_env *e, char c);
+void				ft_printf_s(t_env *e);
+void				ft_printf_smaj(t_env *e);
+void				ft_printf_p(t_env *e);
+void				ft_printf_di(t_env *e);
+void				ft_printf_dmaj(t_env *e);
+void				ft_printf_omaj(t_env *e);
+void				ft_printf_o(t_env *e);
+void				ft_printf_u(t_env *e);
+void				ft_printf_umaj(t_env *e);
+void				ft_printf_x(t_env *e);
+void				ft_printf_xmaj(t_env *e);
+void				ft_printf_c(t_env *e);
+void				ft_printf_cmaj(t_env *e);
+void				ft_printf_modulo(t_env *e);
+void				ft_printf_add_to_buffer(t_env *e, char *s, int start);
+void				ft_printf_buffer_flush(t_env *e);
 int					ft_toupper(int c);
 void				ft_putendl(char const *s);
 char				*ft_strcpy(char *dst, const char *src);
@@ -95,11 +92,10 @@ size_t				ft_strlen(const char *s);
 void				ft_putstr(char const *s);
 void				ft_putchar(char c);
 char				*ft_strnew(size_t size);
-int					ft_printf(const char *restrict format, ...);
+int					printf(const char *restrict format, ...);
 char				*ft_strdup(const char *s1);
 char				*ft_itoa(int n);
-/** MECANIQUE FLAG ZERO & MORE **/
-char     			*remove_min(t_env *e, char *tmp);
-void        		ft_printf_putflags(t_env *e, char *s);
+char				*remove_min(t_env *e, char *tmp);
+void				ft_printf_putflags(t_env *e, char *s);
 
 #endif
