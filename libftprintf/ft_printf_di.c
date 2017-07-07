@@ -21,6 +21,19 @@ void    ft_printf_di(t_env *e)
         tmp = ft_printf_stoa_base(va_arg(e->pa, int), 10);
     tmp = remove_min(e, tmp);
     e->type = 'd';
+//    ft_printf_putflags(e, tmp);
+
+
+    if (ft_strcmp(tmp, "0") == 0)
+    {
+        if (e->precision == 0)
+            ft_printf_putflags(e, "");
+        else
+            ft_printf_putflags(e, tmp);
+        return;
+    }
     ft_printf_putflags(e, tmp);
+
+
     free(tmp);
 }

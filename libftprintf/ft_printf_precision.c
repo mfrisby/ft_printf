@@ -45,5 +45,6 @@ int		ft_printf_precision(t_env *e, char *format)
         }
         return (0);
     }
-    return (-1);
+    e->precision = 0;
+    return (0);
 }

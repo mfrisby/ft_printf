@@ -35,8 +35,14 @@ static char  *getprecision(t_env *e, char *s)
     return (s);
 }
 
-static void flagcompar(t_env *e)
+static char *flagcompar(t_env *e, char *s)
 {
+    if (e->flag_space == 1)
+        e->field_width -= 1;
+    if (e->type == 'c' && ft_strcmp(s, "") == 0)
+        e->field_width-=1;
+    if (e->type == 'c')
+        e->precision = -1;
     if ((e->flag_moins == 1 || e->precision >= 0) && e->flag_zero == 1)
         e->flag_zero = 0;//min annule zero
     if (e->flag_plus == 1 && e->neg == 1)
@@ -45,6 +51,7 @@ static void flagcompar(t_env *e)
         e->flag_space = 0;
     if (e->neg == 1 && e->flag_space == 1)
         e->flag_space = 0;
+    return (s);
 }
 
 static char *getfield(t_env *e, char *s, char *field, char *dp)
@@ -84,7 +91,7 @@ static char *getdp(t_env *e, char *dp, char *s)
         dp[0] = '0';
         dp[1] = '\0';
     }
-    else if (e->type == 'd' || e->type == 'i' || e->type == 'o' || e->type == 'u')
+    else if (e->type == 'd' || e->type == 'i' || e->type == 'o')
     {
         dp[0] = e->neg == 0 && e->flag_plus == 1 ? '+' : e->neg == 1 ? '-' : '\0';
         dp[1] = '\0';
@@ -107,11 +114,11 @@ static char *getspace(t_env *e, char *space)
 void        ft_printf_putflags(t_env *e, char *s)
 {
     char *field;
-    char *dp;//diese plus
+    char *dp;
     char *space;
 
     field = NULL;
-    flagcompar(e);
+    flagcompar(e, s);
     space = getspace(e, space);
     s = getprecision(e, s);
     dp = getdp(e, dp, s);
@@ -128,7 +135,7 @@ void        ft_printf_putflags(t_env *e, char *s)
         s = ft_strjoin(dp, s);
         s = ft_strjoin(space, s);
     }
-    else//moins == 0 field == ' '
+    else
     {
         s = ft_strjoin(dp, s);
         s = ft_strjoin(field, s);
