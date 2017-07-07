@@ -41,9 +41,12 @@ int        ft_printf_conversion(t_env *e, char c){
         ft_printf_p(e);
     else if (c == '%')
         ft_printf_modulo(e);
-    else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-        return (1);
+    // else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+    //     return (1);
     else
+    {
+        e->field_width--;
+        ft_printf_putflags(e, "");
         return (-1);
-    return (0);
+    }return (0);
 }
