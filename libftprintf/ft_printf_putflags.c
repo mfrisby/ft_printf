@@ -37,8 +37,6 @@ static char  *getprecision(t_env *e, char *s)
 
 static char *flagcompar(t_env *e, char *s)
 {
-    if (e->flag_space == 1)
-        e->field_width -= 1;
     if (e->type == 'c' && ft_strcmp(s, "") == 0)
         e->field_width-=1;
     if (e->type == 'c')
@@ -51,6 +49,8 @@ static char *flagcompar(t_env *e, char *s)
         e->flag_space = 0;
     if (e->neg == 1 && e->flag_space == 1)
         e->flag_space = 0;
+    if (e->flag_space == 1)
+        e->field_width -= 1;
     return (s);
 }
 

@@ -1,4 +1,3 @@
-#include "locale.h"
 #include "libftprintf.h"
 #include <wchar.h>
 
@@ -27,5 +26,4 @@ void    ft_printf_cmaj(t_env *e)
         tmp[ret] = '\0';
         ft_printf_add_to_buffer(e, tmp, 0);
     }
-    return;
 }

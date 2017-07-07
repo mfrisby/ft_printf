@@ -16,38 +16,10 @@ int		main(int ac, char **av)
 {
 	int ret1 = 0;
 	int ret2 = 0;
-
-	// ret1 = printf("printf: %5c\n", 42);
-	// ret2 = ft_printf("fprint: %5c\n", 42);
-	//  printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-
-	// ret1 = printf("printf: % c\n", 0);
-	// ret2 = ft_printf("fprint: % c\n", 0);
-	//  printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-
-	//  ret1 = printf("printf: %#.x %#.0x\n", 0, 0);
-	//  ret2 = ft_printf("fprint: %#.x %#.0x\n", 0, 0);
-	//  printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-
-	// ret1 = printf("printf: %.x %.0x\n", 0, 0);
-	// ret2 = ft_printf("fprint: %.x %.0x\n", 0, 0);
-	//  printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-
-	// ret1 = printf("printf: %.2c\n", NULL);
-	// ret2 = ft_printf("fprint: %.2c\n", NULL);
-	// printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-
-	// ret1 = printf("printf: %c\n", 0);
-	// ret2 = ft_printf("fprint: %c\n", 0);
-	// printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-	
-	ret1 = printf("printf: %#.x %#.0x\n", 0, 0);
-	ret2 = ft_printf("fprint: %#.x %#.0x\n", 0, 0);
-	printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-
-	// ret1 = printf("printf: %c and text\n", 0);
-	// ret2 = ft_printf("fprint: %c and text\n", 0);
-	// // printf("printf: %d fprintf: %d\n\n", ret1, ret2);
-
+	ret1= ft_printf("fprint: %+ 010d\n", 10);
+	ret2 = printf("printf: %+ 010d\n", 10);
+	// ret1= ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
+	// ret2 = printf("@main_ftprintf: %#0 33+d\n", 256);
+	printf("\nfprint: %d\nprintf: %d\n", ret1, ret2);
 	return (0);
 }

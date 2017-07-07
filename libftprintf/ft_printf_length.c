@@ -2,7 +2,7 @@
 //hh h l ll j z
 static int  ft_printf_length2(t_env *e, char *format)
 {
-    if (format[e->i + 1] && format[e->i] == 'h' && format[e->i + 1] != 'h')
+    if (format[e->i] == 'h' && format[e->i + 1] && format[e->i + 1] != 'h')
     {
         e->m_h = 1;
         e->i += 1;
@@ -23,6 +23,12 @@ static int  ft_printf_length2(t_env *e, char *format)
 }
 int         ft_printf_length(t_env *e, char *format)
 {
+    if ((format[e->i] == 'h' || format[e->i] == 'l' ||format[e->i] == 'j' ||format[e->i] == 'z') &&
+        !format[e->i+1])
+    {
+            e->i++;
+            return (-1);
+    }
     if (ft_printf_length2(e, format) == 1)
         return (0);
     if (format[e->i + 1] && format[e->i] == 'l' && format[e->i + 1] == 'l')

@@ -63,7 +63,8 @@ int			ft_printf(const char *restrict format, ...)
 	va_start(e.pa, format);
 	while (format[e.i] != '\0')
 	{
-		ft_printf_buffer_flush(&e);
+		if (e.index >= 3999)
+			ft_printf_buffer_flush(&e);
 		if ((format[e.i] != '%' && format[e.i] != 92)/* backslash */ ||
 			(format[e.i] == '%' && format[e.i+1] && format[e.i+1] == '%'))
 			ft_printf_add_char(&e, format[e.i]);

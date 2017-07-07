@@ -60,7 +60,7 @@ static int      ft_printf_isflag(char c, t_env *e)
 
 void    ft_printf_parser(t_env *e, char *format)
 {
-    e->i+=1;//after %
+    e->i++;
     while (format[e->i])
     {
         if (ft_printf_isflag(format[e->i], e) == 0)
@@ -69,16 +69,15 @@ void    ft_printf_parser(t_env *e, char *format)
             continue;
         if (ft_printf_precision(e, format) == 0)
             continue;
-        if (ft_printf_length(e, format) == 0)//modificateur de longueur
+        if (ft_printf_length(e, format) == 0)
             continue;
         if (ft_printf_conversion(e, format[e->i]) == 0)
         {
-            e->i+=1;
+            e->i++;
             break;
         }
         else
             break;
-        e->i+=1;
+        e->i++;
     }
-    return ;
 }
