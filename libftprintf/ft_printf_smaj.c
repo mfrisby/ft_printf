@@ -5,20 +5,21 @@ static void ft_printf_parse_smaj(t_env *e, wchar_t *s)
     char tmp[5];
     int ret;
     char *s1;
+    int total;
 
     ret = 0;
+    total = 0;
     s1 = ft_strnew(1);
     while (*s)
     {
-        if (*s <= 127)
+        ret = ft_printf_unicode(tmp, *s);
+        tmp[ret] = '\0';
+        total += ret;
+        if (total > e->precision && e->precision >= 0)
         {
-            tmp[0] = (char)*s;
-            tmp[1] = '\0';
-        }
-        else
-        {
-            ret = ft_printf_unicode(tmp, *s);
-            tmp[ret] = '\0';
+            total -= ret;
+            s1[total] = '\0';
+            break;
         }
         s1 = ft_strjoin(s1, tmp);
         s++;

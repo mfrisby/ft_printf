@@ -9,13 +9,13 @@ static char  *getprecision(t_env *e, char *s)
     i = 0;
     len = ft_strlen(s);
     tmp = NULL;
-    if (e->precision >= 0 && (e->type == 's' || e->type == 'S'))
+    if (e->precision >= 0 && e->type == 's')
     {
         if (e->precision < ft_strlen(s))
-            s = ft_strsub(s, 0, e->precision);
+                s = ft_strsub(s, 0, e->precision);
         return (s);
     }
-    else if (e->type == 'c' || e->type == 'C')
+    else if (e->type == 'c' || e->type == 'C' || e->type == 'S')
         return (s);
     else
     {
