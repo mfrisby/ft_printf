@@ -26,6 +26,15 @@ void    ft_printf_xmaj(t_env *e)
         i++;
     }
     e->type = 'X';
+    if (ft_strcmp(tmp, "0") == 0)
+    {
+        e->flag_diese = 0;
+        if (e->precision == 0)
+            ft_printf_putflags(e, "");
+        else
+            ft_printf_putflags(e, tmp);
+        return;
+    }
     ft_printf_putflags(e, tmp);   
     return;
 }

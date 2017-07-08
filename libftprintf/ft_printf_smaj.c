@@ -31,8 +31,12 @@ void        ft_printf_smaj(t_env *e)
     wchar_t *s;
     
     s = va_arg(e->pa, wchar_t*);
-     if (s == NULL)
-         ft_printf_add_to_buffer(e, "(null)", 0);
-     else
-         ft_printf_parse_smaj(e, s);
+    e->type = 'S';
+    if (s == NULL)
+    {
+        s = ft_strdup("(null)");
+        ft_printf_putflags(e, s);
+    }
+    else
+        ft_printf_parse_smaj(e, s);
 }

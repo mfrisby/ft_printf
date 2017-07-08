@@ -39,8 +39,9 @@ static char *flagcompar(t_env *e, char *s)
         e->field_width-=1;
     if (e->type == 'c')
         e->precision = -1;
-    if ((e->flag_moins == 1 || e->precision >= 0) && e->flag_zero == 1)
-        e->flag_zero = 0;//min annule zero
+    if ((e->flag_moins == 1 || e->precision >= 0) && e->flag_zero == 1 &&
+        (e->type == 'd' || e->type == 'u' || e->type == 'o' || e->type == 'x' || e->type == 'X'))
+        e->flag_zero = 0;
     if (e->flag_plus == 1 && e->neg == 1)
         e->flag_plus = 0;
     if (e->flag_plus == 1 && e->flag_space == 1)
@@ -78,13 +79,16 @@ static char *getfield(t_env *e, char *s, char *field, char *dp)
 static char *getdp(t_env *e, char *dp, char *s)
 {
     dp = malloc(sizeof(char) * 3);
-    if ((e->flag_diese == 1 && (e->type == 'x' || e->type == 'X') && s[0] != '0') || e->type == 'p')
+    if ((e->flag_diese == 1 && (e->type == 'x' || e->type == 'X')) || e->type == 'p')
     {
         dp[0] = '0';
-        dp[1] = e->type == 'x' || e->type == 'p' ? 'x' : 'X';
+        if (e->type == 'x' || e->type == 'p')
+            dp[1] = 'x';
+        else
+            dp[1] = 'X';
         dp[2] = '\0';
     }
-    else if (e->flag_diese == 1 && e->type == 'o' && s[0] != '0')
+    else if (e->flag_diese == 1 && (e->type == 'o' ||e->type == 'O')  && s[0] != '0')
     {
         dp[0] = '0';
         dp[1] = '\0';
