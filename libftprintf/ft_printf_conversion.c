@@ -46,7 +46,16 @@ int        ft_printf_conversion(t_env *e, char c){
     else
     {
         e->field_width--;
-        ft_printf_putflags(e, "");
+        if (e->flag_moins == 1)
+        {
+            ft_printf_buffer_flush(e);
+            ft_putchar(c);
+            e->size++;
+            ft_printf_putflags(e, "");
+            e->i++;
+        }
+        else
+            ft_printf_putflags(e, "");
         return (-1);
     }return (0);
 }
