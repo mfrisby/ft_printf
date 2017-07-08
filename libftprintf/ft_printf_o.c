@@ -23,8 +23,6 @@ void    ft_printf_o(t_env *e)
         tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned int), 8);
     //e->flag_plus = 0;
     e->type = 'o';
-    // ft_printf_putflags(e, tmp);    
-
     if (ft_strcmp(tmp, "0") == 0)
     {
         if (e->precision == 0)

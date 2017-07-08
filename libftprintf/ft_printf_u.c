@@ -20,5 +20,13 @@ void    ft_printf_u(t_env *e)
     else
         tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned int), 10);
     e->type = 'u';
+    if (ft_strcmp(tmp, "0") == 0)
+    {
+        if (e->precision == 0)
+            ft_printf_putflags(e, "");
+        else
+            ft_printf_putflags(e, tmp);
+        return;
+    }
     ft_printf_putflags(e, tmp);
 }
