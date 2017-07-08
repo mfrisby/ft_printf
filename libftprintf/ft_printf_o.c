@@ -6,6 +6,7 @@ void    ft_printf_o(t_env *e)
     char *tmp;
     char *tmp2;
 
+    e->flag_plus = 0;
     if (e->m_ll)
         tmp = ft_printf_utoa_base(va_arg(e->pa, unsigned long long), 8);
     else if (e->m_l)
