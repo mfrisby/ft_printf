@@ -17,8 +17,6 @@ static char  *getprecision(t_env *e, char *s)
     }
     else if (e->type == 'c' || e->type == 'C')
         return (s);
-    else if (e->type == 'p')
-        return (s);
     else
     {
         if (e->precision > len)
@@ -80,10 +78,10 @@ static char *getfield(t_env *e, char *s, char *field, char *dp)
 static char *getdp(t_env *e, char *dp, char *s)
 {
     dp = malloc(sizeof(char) * 3);
-    if (e->flag_diese == 1 && (e->type == 'x' || e->type == 'X') && s[0] != '0')
+    if ((e->flag_diese == 1 && (e->type == 'x' || e->type == 'X') && s[0] != '0') || e->type == 'p')
     {
         dp[0] = '0';
-        dp[1] = e->type == 'x' ? 'x' : 'X';
+        dp[1] = e->type == 'x' || e->type == 'p' ? 'x' : 'X';
         dp[2] = '\0';
     }
     else if (e->flag_diese == 1 && e->type == 'o' && s[0] != '0')
