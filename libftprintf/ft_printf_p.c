@@ -13,8 +13,15 @@ void    ft_printf_p(t_env *e)
         tmp[i] = ft_tolower(tmp[i]);
         i++;
     }
-    tmp = ft_strjoin("0x", tmp);
+    e->type = 'p';
+    if (ft_strcmp(tmp, "0") == 0)
+    {
+        if (e->precision == 0)
+            ft_printf_putflags(e, "");
+        else
+            ft_printf_putflags(e, tmp);
+        return;
+    }
     ft_printf_putflags(e, tmp);
-    //ft_printf_add_to_buffer(e, "0x", 0);
-    //ft_printf_add_to_buffer(e, tmp, 0);
+    free(tmp);
 }   
