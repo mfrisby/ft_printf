@@ -23,18 +23,7 @@ void    ft_printf_c(t_env *e)
         ft_putchar(NULL);
         return;
     }
-    while (c > 128)
-    {
-        c -= 128;
-    }
     tmp[0] = c;
     tmp[1] = '\0';
     ft_printf_putflags(e, tmp);
-    // if (c >= 0 && c <= 255)
-    // {
-    //     uc = c;
-    //     e->result[e->index] = uc;
-    //     e->index++;
-    //     e->size++;
-    // }
 }
