@@ -11,7 +11,7 @@ static char		*getprecision(t_env *e, char *s)
 	tmp = NULL;
 	if (e->precision >= 0 && e->type == 's')
 	{
-		if (e->precision < (int)ft_strlen(s))
+		if (e->precision < len)
 			s = ft_strsub(s, 0, e->precision);
 		return (s);
 	}
@@ -23,29 +23,9 @@ static char		*getprecision(t_env *e, char *s)
 			while (i < e->precision - len)
 				tmp[i++] = '0';
 			s = ft_strjoin(tmp, s);
+			ft_strdel(&tmp);
 		}
 	}
-	return (s);
-}
-
-static char		*flagcompar(t_env *e, char *s)
-{
-	if (e->type == 'c' && ft_strcmp(s, "") == 0)
-		e->field_width -= 1;
-	if (e->type == 'c')
-		e->precision = -1;
-	if ((e->flag_moins == 1 || e->precision >= 0) && e->flag_zero == 1 &&
-			(e->type == 'd' || e->type == 'u' || e->type == 'o'
-			|| e->type == 'x' || e->type == 'X'))
-		e->flag_zero = 0;
-	if (e->flag_plus == 1 && e->neg == 1)
-		e->flag_plus = 0;
-	if (e->flag_plus == 1 && e->flag_space == 1)
-		e->flag_space = 0;
-	if (e->neg == 1 && e->flag_space == 1)
-		e->flag_space = 0;
-	if (e->flag_space == 1)
-		e->field_width -= 1;
 	return (s);
 }
 
@@ -97,29 +77,44 @@ static char		*getdp(t_env *e, char *dp, char *s)
 	return (dp);
 }
 
-void			ft_printf_putflags(t_env *e, char *s)
+static void		addtobuffer(t_env *e, char *s, char *dp, char *space)
 {
 	char *field;
+	char *tmp;
+	char *tmp1;
+	
+	tmp = NULL;
+	tmp1 = NULL;
+	field = NULL;
+	field = getfield(e, s, field, dp);
+	if (e->flag_moins)
+		tmp = ft_strjoin(s, field);//s devant field
+	else
+		tmp = ft_strjoin((!ft_strlen(field) || field[0] == '0' ? field : dp), s);//field ou dp devant s
+	tmp1 = ft_strjoin((e->flag_moins || (!ft_strlen(field) || field[0] == '0')
+	? dp : field), tmp);//field ou dp devant s
+
+	ft_printf_add_to_buffer(e, space, 0);
+	ft_printf_add_to_buffer(e, tmp1, 0);
+	//s = ft_strjoin(space, s);
+	//ft_printf_add_to_buffer(e, s, 0);
+	//free(s);
+	ft_strdel(&tmp);
+	free(tmp1);
+	free(field);
+	free(dp);
+	free(space);
+}
+
+void			ft_printf_putflags(t_env *e, char *s)
+{
 	char *dp;
 	char *space;
 
 	space = NULL;
 	dp = NULL;
-	field = NULL;
-	flagcompar(e, s);
-	space = getspace(e, space);
+	space = getspace(e, space, s);
 	s = getprecision(e, s);
 	dp = getdp(e, dp, s);
-	field = getfield(e, s, field, dp);
-	if (e->flag_moins)
-		s = ft_strjoin(s, field);
-	else
-		s = ft_strjoin((!ft_strlen(field) || field[0] == '0' ? field : dp), s);
-	s = ft_strjoin((e->flag_moins || (!ft_strlen(field) || field[0] == '0')
-	? dp : field), s);
-	s = ft_strjoin(space, s);
-	ft_printf_add_to_buffer(e, s, 0);
-	free(field);
-	free(dp);
-	free(space);
+	addtobuffer(e, s, dp, space);
 }

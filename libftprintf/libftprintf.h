@@ -72,6 +72,7 @@ int					ft_atoi(const char *str);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_itoa(int n);
 size_t				ft_strlen(const char *s);
+void				ft_strdel(char **as);
 void				ft_putstr(char const *s);
 void				ft_putchar(char c);
 char				*ft_strnew(size_t size);
@@ -80,6 +81,6 @@ char				*ft_strdup(const char *s1);
 char				*ft_itoa(int n);
 char				*remove_min(t_env *e, char *tmp);
 void				ft_printf_putflags(t_env *e, char *s);
-char				*getspace(t_env *e, char *space);
+char				*getspace(t_env *e, char *space, char *s);
 
 #endif

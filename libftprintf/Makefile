@@ -6,7 +6,7 @@ SRC = 	ft_printf_precision.c ft_printf_conversion.c ft_printf_width.c \
 	  	ft_printf_s.c ft_printf_smaj.c ft_printf_p.c ft_printf_putflags.c\
 		ft_printf_di.c ft_printf_dmaj.c ft_printf_cmaj.c \
 		ft_printf_omaj.c ft_printf_o.c ft_printf_u.c ft_printf.c \
-		ft_printf_umaj.c ft_printf_x.c ft_printf_xmaj.c ft_printf_c.c \
+		ft_printf_umaj.c ft_printf_x.c ft_printf_xmaj.c ft_printf_c.c ft_strdel.c\
 		ft_strsub.c ft_atoi.c ft_putnbr.c ft_tolower.c ft_strcmp.c ft_memset.c ft_bzero.c ft_strdup.c ft_itoa.c\
 		ft_putstr.c ft_putchar.c ft_strlen.c ft_strnew.c ft_strjoin.c ft_isdigit.c ft_strcpy.c ft_putendl.c\
 		ft_printf_remove_min.c ft_printf_unicode.c\
