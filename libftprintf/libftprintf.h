@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ysan-seb <ysan-seb@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/11 14:43:54 by mfrisby           #+#    #+#             */
-/*   Updated: 2017/07/07 12:12:09 by ysan-seb         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
@@ -44,13 +32,8 @@ typedef struct		s_env
 }					t_env;
 
 void				ft_printf_special_char(t_env *e, char *format);
-char				*ft_printf_stoa_base(long long nb, int base);
-char				*ft_printf_utoa_base(unsigned long long nb, int base);
-char				*ft_printf_itoabase(unsigned int nbr, int base);
-char				*ft_printf_itoabase_si(signed int nbr, int base);
-char				*ft_printf_itoabase_uli(unsigned long nbr, int base);
-char				*ft_printf_itoabase_sli(signed long nbr, int base);
-char				*ft_printf_str_reverse(char *str);
+char				*ft_stoa_base(long long nb, int base);
+char				*ft_utoa_base(unsigned long long nb, int base);
 void				ft_printf_parser(t_env *e, char *format);
 int					ft_printf_precision(t_env *e, char *format);
 char				*ft_printf_width(char *moon, char *result, int *i);
@@ -97,5 +80,6 @@ char				*ft_strdup(const char *s1);
 char				*ft_itoa(int n);
 char				*remove_min(t_env *e, char *tmp);
 void				ft_printf_putflags(t_env *e, char *s);
+char				*getspace(t_env *e, char *space);
 
 #endif
