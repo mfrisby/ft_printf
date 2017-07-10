@@ -68,7 +68,7 @@ static char		*getfield(t_env *e, char *s, char *field, char *dp)
 		}
 	}
 	if (field == NULL)
-		return ("");
+		return (ft_strdup(""));
 	return (field);
 }
 
@@ -119,4 +119,7 @@ void			ft_printf_putflags(t_env *e, char *s)
 	? dp : field), s);
 	s = ft_strjoin(space, s);
 	ft_printf_add_to_buffer(e, s, 0);
+	free(field);
+	free(dp);
+	free(space);
 }

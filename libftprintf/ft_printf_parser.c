@@ -2,7 +2,7 @@
 
 static void			ft_printf_field_width3(t_env *e, char *format, int start)
 {
-	e->field_width = ft_atoi(ft_strsub(format, start, (e->i + 1) - start));
+	e->field_width = ft_atoi(format + start);
 	if (e->field_width < 0)
 	{
 		e->flag_moins = 1;
