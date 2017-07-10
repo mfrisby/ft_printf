@@ -11,15 +11,24 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include <stdio.h>
+#include <time.h>
 int		main(int ac, char **av)
 {
-	int ret1 = 0;
-	int ret2 = 0;
-	ret1= ft_printf("fprint: %+ 010d\n", 10);
-	ret2 = printf("printf: %+ 010d\n", 10);
-	// ret1= ft_printf("@main_ftprintf: %###-#0000 33...12..#0+0d\n", 256);
-	// ret2 = printf("@main_ftprintf: %#0 33+d\n", 256);
-	printf("\nfprint: %d\nprintf: %d\n", ret1, ret2);
+	clock_t c1;
+	clock_t start1;
+	clock_t c;
+	clock_t start;
+
+	start = clock();
+	printf("hey %100.3s %-30.45d\n", "coucou", 42);
+	c = clock();
+	printf("printf: %Lf\n", (long double)(c - start));
+	start1 = clock();
+	ft_printf("hey %100.3s %-30.45d\n", "coucou", 42);
+	c1 = clock();
+
+	printf("ft_printf: %Lf\n", (long double)(c1 - start1));
+	
 	return (0);
 }
