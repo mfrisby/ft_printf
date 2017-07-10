@@ -14,7 +14,7 @@ SRC = 	ft_printf_precision.c ft_printf_conversion.c ft_printf_width.c \
 
 OBJS = $(SRC:.c=.o)
 
-FLAG = #-Wall -Wextra -Werror
+FLAG = -Wall -Wextra -Werror
 
 all: $(NAME)
 

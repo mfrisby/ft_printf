@@ -11,7 +11,7 @@ static char		*getprecision(t_env *e, char *s)
 	tmp = NULL;
 	if (e->precision >= 0 && e->type == 's')
 	{
-		if (e->precision < ft_strlen(s))
+		if (e->precision < (int)ft_strlen(s))
 			s = ft_strsub(s, 0, e->precision);
 		return (s);
 	}
@@ -103,6 +103,8 @@ void			ft_printf_putflags(t_env *e, char *s)
 	char *dp;
 	char *space;
 
+	space = NULL;
+	dp = NULL;
 	field = NULL;
 	flagcompar(e, s);
 	space = getspace(e, space);

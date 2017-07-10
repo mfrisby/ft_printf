@@ -10,7 +10,7 @@ static void			ft_printf_field_width3(t_env *e, char *format, int start)
 	}
 }
 
-static void			ft_printf_field_width2(t_env *e, char *format)
+static void			ft_printf_field_width2(t_env *e)
 {
 	e->field_width = va_arg(e->pa, int);
 	if (e->field_width < 0)
@@ -28,7 +28,7 @@ static int			ft_printf_field_width(t_env *e, char *format)
 	start = e->i;
 	if (format[e->i] == '*')
 	{
-		ft_printf_field_width2(e, format);
+		ft_printf_field_width2(e);
 		return (0);
 	}
 	if (format[e->i] >= '1' && format[e->i] <= '9')

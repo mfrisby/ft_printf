@@ -25,7 +25,6 @@ static char		*ft_printf_check_ml(t_env *e)
 void			ft_printf_o(t_env *e)
 {
 	char *tmp;
-	char *tmp2;
 
 	e->flag_plus = 0;
 	tmp = ft_printf_check_ml(e);

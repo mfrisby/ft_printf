@@ -24,7 +24,6 @@ static char		*ft_printf_check_ml(t_env *e)
 void			ft_printf_di(t_env *e)
 {
 	char *tmp;
-	char *tmp2;
 
 	tmp = ft_printf_check_ml(e);
 	tmp = remove_min(e, tmp);

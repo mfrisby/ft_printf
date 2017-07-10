@@ -24,7 +24,6 @@ static char		*ft_printf_check_ml(t_env *e)
 void			ft_printf_u(t_env *e)
 {
 	char *tmp;
-	char *tmp2;
 
 	e->type = 'u';
 	tmp = ft_printf_check_ml(e);

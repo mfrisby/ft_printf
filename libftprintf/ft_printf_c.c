@@ -2,9 +2,10 @@
 
 void	ft_printf_c(t_env *e)
 {
-	char	tmp[2];
+	char	*tmp;
 	int		c;
 
+	tmp = ft_strnew(2);
 	e->type = 'c';
 	if (e->m_l == 1)
 	{
@@ -18,7 +19,7 @@ void	ft_printf_c(t_env *e)
 		e->size++;
 		ft_printf_putflags(e, "");
 		ft_printf_buffer_flush(e);
-		ft_putchar(NULL);
+		ft_putchar(0);
 		return ;
 	}
 	tmp[0] = c;
