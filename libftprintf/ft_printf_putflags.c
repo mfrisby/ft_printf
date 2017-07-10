@@ -82,7 +82,7 @@ static void		addtobuffer(t_env *e, char *s, char *dp, char *space)
 	char *field;
 	char *tmp;
 	char *tmp1;
-	
+
 	tmp = NULL;
 	tmp1 = NULL;
 	field = NULL;
@@ -117,4 +117,5 @@ void			ft_printf_putflags(t_env *e, char *s)
 	s = getprecision(e, s);
 	dp = getdp(e, dp, s);
 	addtobuffer(e, s, dp, space);
+	free(s);
 }
