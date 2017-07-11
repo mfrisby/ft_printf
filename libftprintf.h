@@ -19,6 +19,8 @@
 
 typedef struct		s_env
 {
+	int				fd;
+	int				family;
 	char			result[4000];
 	size_t			size;
 	size_t			index;
@@ -42,6 +44,18 @@ typedef struct		s_env
 	va_list			pa;
 }					t_env;
 
+int					ft_dprintf(int fd, const char *restrict format, ...);
+int					ft_sprintf(const char *restrict str,
+		const char *restrict format, ...);
+int					ft_snprintf(const char *restrict str, size_t size,
+		const char *restrict format, ...);
+int					ft_vprintf(const char *restrict format, va_list ap);
+int					ft_vdprintf(int fd, const char *restrict format,
+		va_list ap);
+int					ft_vsprintf(const char *restrict str,
+		const char *restrict format, va_list ap);
+int					ft_vsnprintf(const char *restrict str, size_t size,
+		const char *restrict format, va_list ap);
 int					ft_printf(const char *restrict format, ...);
 void				ft_printf_special_char(t_env *e, char *format);
 char				*ft_stoa_base(long long nb, int base);
@@ -85,7 +99,9 @@ char				*ft_itoa(int n);
 size_t				ft_strlen(const char *s);
 void				ft_strdel(char **as);
 void				ft_putstr(char const *s);
+void				ft_putstr_fd(char const *s, int fd);
 void				ft_putchar(char c);
+void				ft_putchar_fd(char c, int fd);
 char				*ft_strnew(size_t size);
 char				*ft_strdup(const char *s1);
 char				*ft_itoa(int n);
