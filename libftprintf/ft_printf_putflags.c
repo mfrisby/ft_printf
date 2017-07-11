@@ -8,29 +8,20 @@ static char		*getprecision(t_env *e, char *s, size_t len)
 
 	i = 0;
 	ret = NULL;
-	if (s != NULL && e->precision >= 0 && e->precision < (int)len && e->type == 's' 
-		&& s[e->precision])
+	if (e->type != 'c' && e->type != 'C' && e->type != 'S' && e->type != 's' && e->precision > (int)len)
 	{
-		s[e->precision] = '\0';
-		return (s);
-	}
-	else 
-	{
-		if (e->type != 'c' && e->type != 'C' && e->type != 'S' && e->type != 's' && e->precision > (int)len)
+		while (i < e->precision - (int)len)
 		{
-			while (i < e->precision - (int)len)
-			{
-				tmp[i] = '0';
-				i++;
-			}
-			tmp[i] = '\0';
-			if (!s)
-				ret = ft_strjoin(tmp, "");
-			else
-				ret = ft_strjoin(tmp, s);
-			ft_strdel(&s);
-			return (ret);
+			tmp[i] = '0';
+			i++;
 		}
+		tmp[i] = '\0';
+		if (!s)
+			ret = ft_strjoin(tmp, "");
+		else
+			ret = ft_strjoin(tmp, s);
+		ft_strdel(&s);
+		return (ret);
 	}
 	return (s);
 }
