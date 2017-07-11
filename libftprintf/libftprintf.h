@@ -82,5 +82,6 @@ char				*ft_itoa(int n);
 char				*remove_min(t_env *e, char *tmp);
 void				ft_printf_putflags(t_env *e, char *s);
 char				*getspace(t_env *e, char *space, char *s);
+char				*ft_strjoin_free(char *s1, char *s2, int rm);
 
 #endif
