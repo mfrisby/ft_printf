@@ -2,6 +2,7 @@
 
 void	ft_printf_s(t_env *e)
 {
+	char *tmp;
 	char *s;
 
 	if (e->m_l == 1)
@@ -13,6 +14,8 @@ void	ft_printf_s(t_env *e)
 		s = va_arg(e->pa, char*);
 	e->type = 's';
 	if (s == NULL)
-		s = ft_strdup("(null)");
-	ft_printf_putflags(e, s);
+		tmp = ft_strdup("(null)");
+	else
+		tmp = ft_strdup(s);
+	ft_printf_putflags(e, tmp);
 }

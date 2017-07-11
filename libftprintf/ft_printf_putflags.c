@@ -9,13 +9,9 @@ static char		*getprecision(t_env *e, char *s)
 	i = 0;
 	len = ft_strlen(s);
 	tmp = NULL;
-	if (e->precision >= 0 && e->type == 's')
-	{
-		if (e->precision < len)
-			s = ft_strsub(s, 0, e->precision);
-		return (s);
-	}
-	else if (e->type != 'c' && e->type != 'C' && e->type != 'S')
+	if (e->precision >= 0 && e->precision < len && e->type == 's' && s[e->precision])
+		s[e->precision] = '\0';
+	else if (e->type != 'c' && e->type != 'C' && e->type != 'S' && e->type != 's')
 	{
 		if (e->precision > len)
 		{
@@ -96,9 +92,6 @@ static void		addtobuffer(t_env *e, char *s, char *dp, char *space)
 
 	ft_printf_add_to_buffer(e, space, 0);
 	ft_printf_add_to_buffer(e, tmp1, 0);
-	//s = ft_strjoin(space, s);
-	//ft_printf_add_to_buffer(e, s, 0);
-	//free(s);
 	ft_strdel(&tmp);
 	free(tmp1);
 	free(field);

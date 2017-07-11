@@ -4,6 +4,7 @@ static char		*ft_printf_check_ml(t_env *e)
 {
 	char *tmp;
 
+	tmp = NULL;
 	if (e->m_ll)
 		tmp = ft_stoa_base(va_arg(e->pa, long long), 10);
 	else if (e->m_l)
@@ -37,5 +38,5 @@ void			ft_printf_di(t_env *e)
 		return ;
 	}
 	ft_printf_putflags(e, tmp);
-	free(tmp);
+	//free(tmp);
 }
