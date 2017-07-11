@@ -26,17 +26,12 @@ void			ft_printf_di(t_env *e)
 {
 	char *tmp;
 
+	tmp = NULL;
 	tmp = ft_printf_check_ml(e);
 	tmp = remove_min(e, tmp);
 	e->type = 'd';
-	if (ft_strcmp(tmp, "0") == 0)
-	{
-		if (e->precision == 0)
-			ft_printf_putflags(e, "");
-		else
-			ft_printf_putflags(e, tmp);
-		return ;
-	}
-	ft_printf_putflags(e, tmp);
-	//free(tmp);
+	if (ft_strcmp(tmp, "0") == 0 && e->precision == 0)
+		ft_printf_putflags(e, ft_strdup(""));
+	else
+		ft_printf_putflags(e, tmp);
 }

@@ -8,11 +8,11 @@ static void		ft_printf_conversion3(t_env *e, char c)
 		ft_printf_buffer_flush(e);
 		ft_putchar(c);
 		e->size++;
-		ft_printf_putflags(e, "");
+		ft_printf_putflags(e, ft_strdup(""));
 		e->i++;
 	}
 	else
-		ft_printf_putflags(e, "");
+		ft_printf_putflags(e, ft_strdup(""));
 }
 
 static int		ft_printf_conversion2(t_env *e, char c)

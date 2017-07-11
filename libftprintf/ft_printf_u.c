@@ -25,12 +25,13 @@ void			ft_printf_u(t_env *e)
 {
 	char *tmp;
 
+	tmp = NULL;
 	e->type = 'u';
 	tmp = ft_printf_check_ml(e);
 	if (ft_strcmp(tmp, "0") == 0)
 	{
 		if (e->precision == 0)
-			ft_printf_putflags(e, "");
+			ft_printf_putflags(e, ft_strdup(""));
 		else
 			ft_printf_putflags(e, tmp);
 		return ;

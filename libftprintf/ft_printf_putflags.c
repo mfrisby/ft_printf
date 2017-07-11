@@ -1,38 +1,46 @@
 #include "libftprintf.h"
 
-static char		*getprecision(t_env *e, char *s)
+static char		*getprecision(t_env *e, char *s, size_t len)
 {
-	int		len;
-	char	*tmp;
+	char	tmp[e->precision - len];
 	int		i;
+	char	*ret;
 
 	i = 0;
-	len = ft_strlen(s);
-	tmp = NULL;
-	if (e->precision >= 0 && e->precision < len && e->type == 's' && s[e->precision])
-		s[e->precision] = '\0';
-	else if (e->type != 'c' && e->type != 'C' && e->type != 'S' && e->type != 's')
+	ret = NULL;
+	if (s != NULL && e->precision >= 0 && e->precision < (int)len && e->type == 's' 
+		&& s[e->precision])
 	{
-		if (e->precision > len)
+		s[e->precision] = '\0';
+		return (s);
+	}
+	else 
+	{
+		if (e->type != 'c' && e->type != 'C' && e->type != 'S' && e->type != 's' && e->precision > (int)len)
 		{
-			tmp = ft_strnew(e->precision - len);
-			while (i < e->precision - len)
-				tmp[i++] = '0';
-			s = ft_strjoin(tmp, s);
-			ft_strdel(&tmp);
+			while (i < e->precision - (int)len)
+			{
+				tmp[i] = '0';
+				i++;
+			}
+			tmp[i] = '\0';
+			if (!s)
+				ret = ft_strjoin(tmp, "");
+			else
+				ret = ft_strjoin(tmp, s);
+			ft_strdel(&s);
+			return (ret);
 		}
 	}
 	return (s);
 }
 
-static char		*getfield(t_env *e, char *s, char *field, char *dp)
+static char		*getfield(t_env *e,  char *field, int len)
 {
 	char	c;
-	int		len;
 	int		i;
 
 	i = 0;
-	len = ft_strlen(s) + ft_strlen(dp);
 	c = e->flag_zero == 1 ? '0' : ' ';
 	if (e->field_width > len)
 	{
@@ -82,32 +90,39 @@ static void		addtobuffer(t_env *e, char *s, char *dp, char *space)
 	tmp = NULL;
 	tmp1 = NULL;
 	field = NULL;
-	field = getfield(e, s, field, dp);
+	field = getfield(e, field, ft_strlen(s) + ft_strlen(dp));
 	if (e->flag_moins)
-		tmp = ft_strjoin(s, field);//s devant field
+		tmp = ft_strjoin(s, field);
 	else
-		tmp = ft_strjoin((!ft_strlen(field) || field[0] == '0' ? field : dp), s);//field ou dp devant s
+		tmp = ft_strjoin((!ft_strlen(field) || field[0] == '0' ? field : dp), s);
 	tmp1 = ft_strjoin((e->flag_moins || (!ft_strlen(field) || field[0] == '0')
-	? dp : field), tmp);//field ou dp devant s
+	? dp : field), tmp);
 
 	ft_printf_add_to_buffer(e, space, 0);
 	ft_printf_add_to_buffer(e, tmp1, 0);
 	ft_strdel(&tmp);
-	free(tmp1);
-	free(field);
-	free(dp);
-	free(space);
+	ft_strdel(&tmp1);
+	ft_strdel(&field);
+	ft_strdel(&dp);
+	ft_strdel(&space);
+	ft_strdel(&s);
 }
 
 void			ft_printf_putflags(t_env *e, char *s)
 {
 	char *dp;
 	char *space;
+	char *ret;
+	size_t len;
 
+	ret = NULL;
+	len = ft_strlen(s);
 	space = NULL;
 	dp = NULL;
 	space = getspace(e, space, s);
-	s = getprecision(e, s);
-	dp = getdp(e, dp, s);
-	addtobuffer(e, s, dp, space);
+	ret = getprecision(e, s, len);
+	if (ret == NULL)
+		ret = ft_strdup("");
+	dp = getdp(e, dp, ret);
+	addtobuffer(e, ret, dp, space);
 }

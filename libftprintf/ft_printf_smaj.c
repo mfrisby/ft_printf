@@ -6,7 +6,9 @@ static void		ft_printf_parse_smaj(t_env *e, wchar_t *s)
 	int		ret;
 	char	*s1;
 	int		total;
+	char    *s2;
 
+	s2 = NULL;
 	tmp = ft_strnew(5);
 	ret = 0;
 	total = 0;
@@ -22,10 +24,12 @@ static void		ft_printf_parse_smaj(t_env *e, wchar_t *s)
 			s1[total] = '\0';
 			break ;
 		}
-		s1 = ft_strjoin((char*)s1, tmp);
+		s2 = ft_strjoin_free(s1, tmp, 1);
+		s1 = s2;
 		s++;
 	}
-	ft_printf_putflags(e, (char*)s1);
+	ft_printf_putflags(e, s1);
+	ft_strdel(&tmp);
 }
 
 void			ft_printf_smaj(t_env *e)
@@ -36,8 +40,7 @@ void			ft_printf_smaj(t_env *e)
 	e->type = 'S';
 	if (s == NULL)
 	{
-		s = (wchar_t*)ft_strdup("(null)");
-		ft_printf_putflags(e, (char*)s);
+		ft_printf_putflags(e, ft_strdup("(null)"));
 	}
 	else
 		ft_printf_parse_smaj(e, s);

@@ -5,6 +5,7 @@ void	ft_printf_omaj(t_env *e)
 	char				*tmp;
 	unsigned long int	octal;
 
+	tmp = NULL;
 	e->type = 'O';
 	octal = va_arg(e->pa, unsigned long int);
 	tmp = ft_utoa_base(octal, 8);
@@ -12,7 +13,7 @@ void	ft_printf_omaj(t_env *e)
 	if (ft_strcmp(tmp, "0") == 0)
 	{
 		if (e->precision == 0)
-			ft_printf_putflags(e, "");
+			ft_printf_putflags(e, ft_strdup(""));
 		else
 			ft_printf_putflags(e, tmp);
 		return ;

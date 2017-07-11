@@ -17,7 +17,7 @@ void	ft_printf_c(t_env *e)
 	if (c == 0)
 	{
 		e->size++;
-		ft_printf_putflags(e, "");
+		ft_printf_putflags(e, ft_strdup(""));
 		ft_printf_buffer_flush(e);
 		ft_putchar(0);
 		return ;

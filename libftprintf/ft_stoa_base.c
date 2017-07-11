@@ -20,6 +20,7 @@ char			*ft_stoa_base(long long nb, int base)
 	char	*s;
 	int		len;
 
+	s = NULL;
 	if (nb == -9223372036854775807 - 1)
 		return (ft_strdup("-9223372036854775808"));
 	len = ft_nblen_base(nb, base);

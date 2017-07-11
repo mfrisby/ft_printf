@@ -27,6 +27,7 @@ void			ft_printf_xmaj(t_env *e)
 	char	*tmp;
 
 	i = 0;
+	tmp = NULL;
 	tmp = ft_printf_check_ml(e);
 	while (tmp[i])
 	{
@@ -38,11 +39,10 @@ void			ft_printf_xmaj(t_env *e)
 	{
 		e->flag_diese = 0;
 		if (e->precision == 0)
-			ft_printf_putflags(e, "");
+			ft_printf_putflags(e, ft_strdup(""));
 		else
 			ft_printf_putflags(e, tmp);
 		return ;
 	}
 	ft_printf_putflags(e, tmp);
-	return ;
 }

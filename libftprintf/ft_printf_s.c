@@ -5,6 +5,7 @@ void	ft_printf_s(t_env *e)
 	char *tmp;
 	char *s;
 
+	tmp = NULL;
 	if (e->m_l == 1)
 	{
 		ft_printf_smaj(e);
