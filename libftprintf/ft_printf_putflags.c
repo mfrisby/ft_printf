@@ -117,5 +117,4 @@ void			ft_printf_putflags(t_env *e, char *s)
 	s = getprecision(e, s);
 	dp = getdp(e, dp, s);
 	addtobuffer(e, s, dp, space);
-	free(s);
 }
