@@ -27,6 +27,8 @@ void			ft_printf_cmaj(t_env *e)
 	int		ret;
 	wint_t	cw;
 
+	if (MB_CUR_MAX <= 1)
+		return ;
 	tmp = ft_strnew(5);
 	cw = va_arg(e->pa, wint_t);
 	ret = 0;
