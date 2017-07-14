@@ -32,31 +32,31 @@ static void WriteFrmtd(char *format, ...)
 
 int     main()
 {
-  //  setlocale(LC_ALL, "");
+    //setlocale(LC_ALL, "");
     printf("coucou %lc coucou\n", L'ݗ');
     ft_printf("coucou %lc coucou\n", L'ݗ');
-    // int fd = open("text.txt", O_WRONLY|O_CREAT,0640);
-    //char *s;
-    //s = malloc(sizeof(char) * 100);
-    // FILE *f = fopen("text1.txt", "r+");
+    int fd = open("text.txt", O_WRONLY|O_CREAT,0640);
+    char *s;
+    s = malloc(sizeof(char) * 100);
+    FILE *f = fopen("text1.txt", "r+");
 
-    //WriteFrmtd("vd printf hello %s %c\n", "world", '!');
+    WriteFrmtd("hello %s %c\n", "world", '!');
 
-  //   printf("printf: hello %s %c\n", "world", '!');
-   //  dprintf(fd, "dprintf: hello %s %c\n", "world", '!');
-   //  fprintf(f, "fprintf: hello %s %c\n", "world", '!');
+    printf("printf: hello %s %c\n", "world", '!');
+    dprintf(fd, "dprintf say hello %s %c\n", "world", '!');
+    fprintf(f, "fprintf say hello %s %c\n", "world", '!');
     /*******************/
-    //  s = malloc(sizeof(char) * 100);
-    //  sprintf(s, "hello %s %c\n", "world", '!');
-    //  printf("sprintf: %s\n", s);
-    // ft_sprintf(s, "hello %s %c\n", "world", '!');
-    // printf("fsprint: %s\n", s);
+    s = malloc(sizeof(char) * 100);
+    sprintf(s, "hello %s %c\n", "world", '!');
+    printf("sprintf: %s\n", s);
+    ft_sprintf(s, "hello %s %c\n", "world", '!');
+    printf("fsprint: %s\n", s);
     /*******************/
-//     ft_printf("hello %s %c\n", "world", '!');
-//     ft_dprintf(fd, "hello %s %c\n", "world", '!');
-//     ft_fprintf(f, "hello %s %c\n", "world", '!');
+     ft_printf("hello %s %c\n", "world", '!');
+     ft_dprintf(fd, "hello %s %c\n", "world", '!');
+     ft_fprintf(f, "hello %s %c\n", "world", '!');
 
- //    close(fd);
- //    fclose(f);
+     close(fd);
+     fclose(f); 
     return (0);
 }
