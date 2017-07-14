@@ -48,7 +48,7 @@ void			ft_printf_smaj(t_env *e)
 	char	*s2;
 
 	if (MB_CUR_MAX <= 1)
-		return ;
+		exit(-1) ;
 	s = va_arg(e->pa, wchar_t*);
 	s1 = NULL;
 	s2 = NULL;
