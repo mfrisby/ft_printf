@@ -59,9 +59,7 @@ static void		ft_printf_add_char(t_env *e, char c)
 
 static void		ft_printf_parse(t_env *e, char *format)
 {
-	if (format[e->i] == 92)
-		ft_printf_special_char(e, format);
-	else if (format[e->i] == '%' && format[e->i + 1])
+	if (format[e->i] == '%' && format[e->i + 1])
 		ft_printf_parser(e, format);
 	else
 		e->i++;
@@ -77,7 +75,7 @@ int				ft_dprintf(int fd, const char *restrict format, ...)
 	{
 		if (e.index >= 3999)
 			ft_printf_buffer_flush(&e);
-		if ((format[e.i] != '%' && format[e.i] != 92) || (format[e.i] == '%'
+		if (format[e.i] != '%' || (format[e.i] == '%'
 					&& format[e.i + 1] && format[e.i + 1] == '%'))
 			ft_printf_add_char(&e, format[e.i]);
 		else
